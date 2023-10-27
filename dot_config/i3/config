@@ -186,7 +186,7 @@ bindsym $mod+r mode "resize"
 
 #CUSTOM
 gaps inner 10 
-gaps outer 12 
+gaps outer 8 
 
 default_border pixel 0
 
