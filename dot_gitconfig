@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/n.pellizer/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [user]
 	email = nicholasp21@gmail.com
 	name = Nicholas Pellizer
