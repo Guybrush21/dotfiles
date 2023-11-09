@@ -18,7 +18,7 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=( git history-substring-search nvm npm yarn  )
 zstyle ':omz:plugins:nvm' autoload yes
-
+zstyle ':omz:plugins:nvm' silent-autoload yes 
 
 source $ZSH/oh-my-zsh.sh
 
