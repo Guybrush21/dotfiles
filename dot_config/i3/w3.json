@@ -1,0 +1,19 @@
+{
+  "border": "pixel",
+  "current_border_width": 0,
+  "floating": "auto_off",
+  "geometry": {
+    "height": 1345,
+    "width": 833,
+    "x": 1938,
+    "y": 77
+  },
+  "marks": [],
+  "percent": 1,
+  "swallows": [
+    {
+      "title": "Google Chrome"
+    }
+  ],
+  "type": "con"
+}

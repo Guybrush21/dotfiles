@@ -191,16 +191,18 @@ gaps outer 8
 default_border pixel 0
 
 # default applications
-exec slack
-exec code
-exec google-chrome-stable
+exec --no-startup-id ~/.config/i3/load_layout.sh
+# exec --no-startup-id i3-msg 'workspace 2:comm; exec slack'
+# exec --no-startup-id i3-msg 'workspace 1:main; exec code'
+# exec --no-startup-id i3-msg 'workspace 3:browser; exec google-chrome-stable'
+# exec --no-startup-id i3-msg 'workspace 5:firefox; exec firefox' 
 
 # Wallpapers
 exec feh --bg-fill ~/Pictures/wall/wallhaven-kxj3l1.jpg
 
 bindsym Mod1+Tab exec rofi -show window
 
-exec_always --no-startup-id picom & 
+exec_always --no-startup-id picom --config $HOME/.config/i3/picom.conf & 
 exec_always --no-startup-id $HOME/.config/i3/polybar/bar.sh &
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc &
 exec --no-startup-id redshift -l 45.7699:13.2629 &

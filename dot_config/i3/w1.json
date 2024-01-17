@@ -1,0 +1,101 @@
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "marks": [],
+    "percent": 0.7,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1380,
+               "width": 838,
+               "x": 2781,
+               "y": 42
+            },
+            "marks": [],
+            "percent": 1,
+            "swallows": [
+               {
+               "class": "^Code$",
+               "instance": "^code$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "marks": [],
+    "percent": 0.3,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1380,
+               "width": 1257,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "percent": 0.333333333333333,
+            "swallows": [
+               {
+               "class": "^kitty$",
+               "instance": "^kitty$"
+                }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1380,
+               "width": 1257,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "percent": 0.333333333333333,
+            "swallows": [
+               {
+               "class": "^kitty$",
+               "instance": "^kitty$" }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1380,
+               "width": 1257,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "percent": 0.333333333333333,
+            "swallows": [
+               {
+               "class": "^kitty$",
+               "instance": "^kitty$"
+}
+            ],
+            "type": "con"
+        }
+    ]
+}
+
