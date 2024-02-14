@@ -7,15 +7,6 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
-    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
@@ -69,9 +60,15 @@ local plugins = {
       },
     },
   },
-  { "karb94/neoscroll.nvim", lazy = false },
-  { "github/copilot.vim", lazy = false },
-  { "loctvl842/monokai-pro.nvim" },
+  {"stevearc/conform.nvim",
+    config = function()
+    require "custom.configs.conform"
+    end
+  },
+  { "karb94/neoscroll.nvim", lazy = false,
+    config = function ()
+    require('neoscroll').setup {}
+  end },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

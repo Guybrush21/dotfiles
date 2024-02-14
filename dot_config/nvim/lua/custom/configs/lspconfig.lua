@@ -4,7 +4,8 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "clangd", "svelte", "tailwindcss", "csharp-ls", }
+local servers = { "html", "cssls", "clangd", "svelte", 
+  "tailwindcss", }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -31,5 +32,4 @@ lspconfig.tsserver.setup {
   root_dir = lspconfig.util.root_pattern("package.json"),
   single_file_support = false
 }
-lspconfig.csharp_ls.setup{}
 --
