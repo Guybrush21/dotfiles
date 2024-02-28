@@ -198,7 +198,7 @@ exec --no-startup-id ~/.config/i3/load_layout.sh
 # exec --no-startup-id i3-msg 'workspace 5:firefox; exec firefox' 
 
 # Wallpapers
-exec feh --bg-fill ~/Pictures/wall/wallhaven-kxj3l1.jpg
+exec feh --bg-fill ~/wallpaper.png
 
 bindsym Mod1+Tab exec rofi -show window
 
