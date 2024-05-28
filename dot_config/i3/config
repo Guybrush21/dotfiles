@@ -205,7 +205,7 @@ bindsym Mod1+Tab exec rofi -show window
 exec_always picom --config $HOME/.config/i3/picom.conf & 
 exec_always --no-startup-id $HOME/.config/i3/polybar/bar.sh &
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc &
-exec --no-startup-id redshift -l 45.7699:13.2629 &
+exec steam -silent 
 bindsym $mod+p exec --no-startup-id flameshot gui
 bindsym $mod+Ctrl+greater move workspace to output next
 
