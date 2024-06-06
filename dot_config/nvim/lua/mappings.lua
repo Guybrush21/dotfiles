@@ -15,4 +15,7 @@ vim.g.copilot_no_tab_map = true
 
 map("i", "<C-L>", "<Plug>(copilot-accept-word)")
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map("n", "<leader>a", vim.lsp.buf.code_action, { desc = "LSP code action" })
+
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map("n", "gh", vim.lsp.buf.hover, { desc = "LSP hover" })

@@ -31,9 +31,32 @@ return {
       },
     },
   },
-
+  -- { "nvim-telescope/telescope-ui-select.nvim", after = "telescope.nvim" },
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   opts = {
+  --     extensions_list = { "themes", "ui-select" },
+  --     extensions = {
+  --       ["ui-select"] = {
+  --         require("telescope.themes").get_dropdown {},
+  --       },
+  --     },
+  --   },
+  --   dependencies = {
+  --     "nvim-telescope/telescope-ui-select.nvim",
+  --   },
+  -- },
+  --
+  {
+    "rmagatti/auto-session",
+    opts = {
+      log_level = "error",
+      auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+      auto_save_enabled = true,
+    },
+    lazy = false,
+  },
   { "github/copilot.vim", lazy = false },
-
   {
     "williamboman/mason.nvim",
     opts = {
@@ -53,6 +76,40 @@ return {
       view = {
         width = {},
       },
+      update_focused_file = {
+        enable = false,
+      },
     },
+  },
+  {
+    "karb94/neoscroll.nvim",
+    keys = { "<C-d>", "<C-u>" },
+    config = function()
+      require("neoscroll").setup()
+    end,
+  },
+  {
+    "nvim-neotest/neotest",
+    keys = { "<leader>tl", "<Plug>neotest-run" },
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/neotest-jest",
+    },
+    config = function()
+      require("neotest").setup {
+        adapters = {
+          require "neotest-jest" {
+            jestCommand = "npx test --",
+            jestConfigFile = "custom.jest.config.ts",
+            env = { CI = true },
+            cwd = function(path)
+              return vim.fn.getcwd()
+            end,
+          },
+        },
+      }
+    end,
   },
 }
