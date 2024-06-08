@@ -90,7 +90,36 @@ return {
   },
   {
     "nvim-neotest/neotest",
-    keys = { "<leader>tl", "<Plug>neotest-run" },
+    keys = {
+      {
+        "<leader>tl",
+        function()
+          require("neotest").run.run()
+        end,
+        desc = "Test near",
+      },
+      {
+        "<leader>tf",
+        function()
+          require("neotest").run.fun(vim.fn.expand "%")
+        end,
+        desc = "Test file",
+      },
+      {
+        "<leader>ts",
+        function()
+          require("neotest").summary.open()
+        end,
+        desc = "Test summary",
+      },
+      {
+        "<leader>to",
+        function()
+          require("neotest").output_panel.open()
+        end,
+        desc = "Test output",
+      },
+    },
     dependencies = {
       "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
@@ -101,8 +130,15 @@ return {
       require("neotest").setup {
         adapters = {
           require "neotest-jest" {
-            jestCommand = "npx test --",
-            jestConfigFile = "custom.jest.config.ts",
+            -- jestCommand = "npx test --",
+            -- jestConfigFile = "custom.jest.config.ts",
+            -- jestConfigFile = function(file)
+            --   if string.find(file, "/packages/") then
+            --     return string.match(file, "(.-/[^/]+/)src") .. "jest.config.ts"
+            --   end
+            --
+            --   return vim.fn.getcwd() .. "/jest.config.ts"
+            -- end,
             env = { CI = true },
             cwd = function(path)
               return vim.fn.getcwd()
