@@ -31,22 +31,22 @@ return {
       },
     },
   },
-  -- { "nvim-telescope/telescope-ui-select.nvim", after = "telescope.nvim" },
-  -- {
-  --   "nvim-telescope/telescope.nvim",
-  --   opts = {
-  --     extensions_list = { "themes", "ui-select" },
-  --     extensions = {
-  --       ["ui-select"] = {
-  --         require("telescope.themes").get_dropdown {},
-  --       },
-  --     },
-  --   },
-  --   dependencies = {
-  --     "nvim-telescope/telescope-ui-select.nvim",
-  --   },
-  -- },
-  --
+  { "nvim-telescope/telescope-ui-select.nvim", after = "telescope.nvim" },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      extensions_list = { "fzf", "ui-select", "themes" },
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {},
+        },
+      },
+    },
+    dependencies = {
+      "nvim-telescope/telescope-ui-select.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    },
+  },
   {
     "rmagatti/auto-session",
     opts = {
@@ -77,7 +77,7 @@ return {
         width = {},
       },
       update_focused_file = {
-        enable = false,
+        enable = true,
       },
     },
   },
@@ -87,6 +87,41 @@ return {
     config = function()
       require("neoscroll").setup()
     end,
+  },
+  {
+    "tris203/precognition.nvim",
+    keys = {
+      {
+        "<leader>T",
+        function()
+          require("precognition").toggle()
+        end,
+        desc = "Toggle precognition",
+      },
+    },
+    config = {
+      -- startVisible = true,
+      -- showBlankVirtLine = true,
+      highlightColor = { link = "Comment" },
+      -- hints = {
+      --      Caret = { text = "^", prio = 2 },
+      --      Dollar = { text = "$", prio = 1 },
+      --      MatchingPair = { text = "%", prio = 5 },
+      --      Zero = { text = "0", prio = 1 },
+      --      w = { text = "w", prio = 10 },
+      --      b = { text = "b", prio = 9 },
+      --      e = { text = "e", prio = 8 },
+      --      W = { text = "W", prio = 7 },
+      --      B = { text = "B", prio = 6 },
+      --      E = { text = "E", prio = 5 },
+      -- },
+      -- gutterHints = {
+      --     G = { text = "G", prio = 10 },
+      --     gg = { text = "gg", prio = 9 },
+      --     PrevParagraph = { text = "{", prio = 8 },
+      --     NextParagraph = { text = "}", prio = 8 },
+      -- },
+    },
   },
   {
     "nvim-neotest/neotest",
@@ -130,7 +165,7 @@ return {
       require("neotest").setup {
         adapters = {
           require "neotest-jest" {
-            -- jestCommand = "npx test --",
+            jestCommand = "pnpm run test --",
             -- jestConfigFile = "custom.jest.config.ts",
             -- jestConfigFile = function(file)
             --   if string.find(file, "/packages/") then
