@@ -165,7 +165,7 @@ return {
       require("neotest").setup {
         adapters = {
           require "neotest-jest" {
-            jestCommand = "pnpm run test --",
+            jestCommand = "pnpm run test",
             -- jestConfigFile = "custom.jest.config.ts",
             -- jestConfigFile = function(file)
             --   if string.find(file, "/packages/") then
@@ -175,7 +175,10 @@ return {
             --   return vim.fn.getcwd() .. "/jest.config.ts"
             -- end,
             env = { CI = true },
-            cwd = function(path)
+            cwd = function(file)
+              if string.find(file, "/apps/") then
+                return string.match(file, "(.-/[^/]+/)src")
+              end
               return vim.fn.getcwd()
             end,
           },
