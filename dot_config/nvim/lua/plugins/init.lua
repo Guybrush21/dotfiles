@@ -47,15 +47,15 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
   },
-  {
-    "rmagatti/auto-session",
-    opts = {
-      log_level = "error",
-      auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-      auto_save_enabled = true,
-    },
-    lazy = false,
-  },
+  -- {
+  --   "rmagatti/auto-session",
+  --   opts = {
+  --     log_level = "error",
+  --     auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+  --     auto_save_enabled = false,
+  --   },
+  --   lazy = false,
+  -- },
   { "github/copilot.vim", lazy = false },
   {
     "williamboman/mason.nvim",
@@ -64,9 +64,10 @@ return {
         "html-lsp",
         "prettierd",
         "stylua",
-        "typescript-language-server",
+        -- "typescript-language-server",
         "tailwindcss-language-server",
         "sqlfmt",
+        "vtsls",
       },
     },
   },
@@ -186,4 +187,5 @@ return {
       }
     end,
   },
+  {},
 }
