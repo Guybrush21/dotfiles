@@ -75,7 +75,9 @@ return {
     "nvim-tree/nvim-tree.lua",
     opts = {
       view = {
-        width = {},
+        width = {
+          max = 80,
+        },
       },
       update_focused_file = {
         enable = true,
