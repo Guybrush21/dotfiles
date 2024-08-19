@@ -9,7 +9,7 @@ local stbufnr = function()
 end
 
 M.ui = {
-  theme = "everforest",
+  theme = "onenord",
 
   -- hl_override = {
   -- 	Comment = { italic = true },
