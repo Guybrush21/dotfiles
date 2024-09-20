@@ -35,6 +35,18 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     opts = {
+      defaults = {
+        mappings = {
+          i = {
+            ["<S-Down>"] = function(...)
+              require("telescope.actions").cycle_history_next(...)
+            end,
+            ["<S-Up>"] = function(...)
+              require("telescope.actions").cycle_history_prev(...)
+            end,
+          },
+        },
+      },
       extensions_list = { "fzf", "ui-select", "themes" },
       extensions = {
         ["ui-select"] = {
@@ -47,16 +59,29 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
   },
-  -- {
-  --   "rmagatti/auto-session",
-  --   opts = {
-  --     log_level = "error",
-  --     auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-  --     auto_save_enabled = false,
-  --   },
-  --   lazy = false,
-  -- },
   { "github/copilot.vim", lazy = false },
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
+      {
+        "stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
+        opts = {},
+      },
+      "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+    },
+    config = true,
+    lazy = false,
+    opts = {
+      strategies = {
+        chat = { adapter = "copilot" },
+        inline = { adapter = "copilot" },
+        agent = { adapter = "copilot" },
+      },
+    },
+  },
   {
     "williamboman/mason.nvim",
     opts = {
