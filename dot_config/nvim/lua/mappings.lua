@@ -39,3 +39,5 @@ map("v", "ga", "<cmd>CodeCompanionAdd<cr>", { noremap = true, silent = true, des
 
 -- Expand 'cc' into 'CodeCompanion' in the command line
 vim.cmd [[cab cc CodeCompanion]]
+
+map({ "n", "v" }, "<leader>W", "<cmd>'WindowsToggleAutowidth<cr>", { desc = "Toggle Auto Width" })

@@ -28,6 +28,7 @@ return {
         "tsx",
         "json",
         "sql",
+        "vue",
       },
     },
   },
@@ -85,15 +86,15 @@ return {
   {
     "williamboman/mason.nvim",
     opts = {
-      ensure_installed = {
-        "html-lsp",
-        "prettierd",
-        "stylua",
-        -- "typescript-language-server",
-        "tailwindcss-language-server",
-        "sqlfmt",
-        "vtsls",
-      },
+      -- ensure_installed = {
+      --   "html-lsp",
+      --   "prettierd",
+      --   "stylua",
+      --   "typescript-language-server",
+      --   "tailwindcss-language-server",
+      --   "sqlfmt",
+      --   "vtsls",
+      -- },
     },
   },
   {
@@ -217,5 +218,18 @@ return {
       }
     end,
   },
-  {},
+  {
+    "anuvyklack/windows.nvim",
+    dependencies = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim",
+    },
+    config = function()
+      vim.o.winwidth = 10
+      vim.o.winminwidth = 10
+      vim.o.equalalways = false
+      require("windows").setup()
+    end,
+    lazy = false,
+  },
 }
