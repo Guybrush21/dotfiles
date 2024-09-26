@@ -185,24 +185,24 @@ bindsym $mod+r mode "resize"
 
 
 #CUSTOM
-gaps inner 10 
-gaps outer 8 
+gaps inner 10
+gaps outer 10
+gaps top -4
 
-default_border pixel 0
+
+default_border pixel 2
+
+client.focused #4c7899 #285577 #ffffff #2e9ef4
 
 # default applications
 exec --no-startup-id ~/.config/i3/load_layout.sh
-# exec --no-startup-id i3-msg 'workspace 2:comm; exec slack'
-# exec --no-startup-id i3-msg 'workspace 1:main; exec code'
-# exec --no-startup-id i3-msg 'workspace 3:browser; exec google-chrome-stable'
-# exec --no-startup-id i3-msg 'workspace 5:firefox; exec firefox' 
+exec_always picom -b --config $HOME/.config/i3/picom.conf  
 
 # Wallpapers
 exec_always feh --bg-fill --randomize ~/wall/ 
 
 bindsym Mod1+Tab exec rofi -show window
 
-exec_always picom --config $HOME/.config/i3/picom.conf & 
 exec_always --no-startup-id $HOME/.config/i3/polybar/bar.sh &
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc &
 exec steam -silent 

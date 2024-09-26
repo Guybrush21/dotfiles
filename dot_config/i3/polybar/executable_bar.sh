@@ -16,7 +16,7 @@ for m in $MONITORS; do
   echo "$m"
   if [ "$m" != "DP-4" ]; then
     echo $m
-    MONITOR="$m" polybar -c $HOME/.config/i3/polybar/config.ini secondary &
+    MONITOR="$m" polybar -c $HOME/.config/i3/polybar/config.ini second &
   fi
 done
 
