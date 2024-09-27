@@ -6,7 +6,7 @@ local options = {
     typescript = { "prettierd" },
     javascript = { "prettierd" },
     json = { "prettierd" },
-    sql = { "sqlformat" },
+    sql = { "sqlfmt" },
   },
 
   format_on_save = {
