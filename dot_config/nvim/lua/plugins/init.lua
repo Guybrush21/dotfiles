@@ -2,17 +2,7 @@ return {
   {
     "stevearc/conform.nvim",
     event = "BufWritePre", -- uncomment for format on save
-    config = function()
-      require "configs.conform"
-    end,
-  },
-
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
-    end,
+    opts = require "configs.conform",
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -60,7 +50,18 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
   },
-  { "github/copilot.vim", lazy = false },
+  -- { "github/copilot.vim", lazy = false },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    opts = {
+      panel = { auto_refresh = true, layout = { position = "right" } },
+      suggestion = {
+        auto_trigger = true,
+      },
+    },
+  },
   {
     "olimorris/codecompanion.nvim",
     dependencies = {
@@ -81,20 +82,6 @@ return {
         inline = { adapter = "copilot" },
         agent = { adapter = "copilot" },
       },
-    },
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      -- ensure_installed = {
-      --   "html-lsp",
-      --   "prettierd",
-      --   "stylua",
-      --   "typescript-language-server",
-      --   "tailwindcss-language-server",
-      --   "sqlfmt",
-      --   "vtsls",
-      -- },
     },
   },
   {
@@ -119,41 +106,6 @@ return {
     config = function()
       require("neoscroll").setup()
     end,
-  },
-  {
-    "tris203/precognition.nvim",
-    keys = {
-      {
-        "<leader>T",
-        function()
-          require("precognition").toggle()
-        end,
-        desc = "Toggle precognition",
-      },
-    },
-    config = {
-      -- startVisible = true,
-      -- showBlankVirtLine = true,
-      highlightColor = { link = "Comment" },
-      -- hints = {
-      --      Caret = { text = "^", prio = 2 },
-      --      Dollar = { text = "$", prio = 1 },
-      --      MatchingPair = { text = "%", prio = 5 },
-      --      Zero = { text = "0", prio = 1 },
-      --      w = { text = "w", prio = 10 },
-      --      b = { text = "b", prio = 9 },
-      --      e = { text = "e", prio = 8 },
-      --      W = { text = "W", prio = 7 },
-      --      B = { text = "B", prio = 6 },
-      --      E = { text = "E", prio = 5 },
-      -- },
-      -- gutterHints = {
-      --     G = { text = "G", prio = 10 },
-      --     gg = { text = "gg", prio = 9 },
-      --     PrevParagraph = { text = "{", prio = 8 },
-      --     NextParagraph = { text = "}", prio = 8 },
-      -- },
-    },
   },
   {
     "nvim-neotest/neotest",
@@ -219,17 +171,67 @@ return {
     end,
   },
   {
-    "anuvyklack/windows.nvim",
-    dependencies = {
-      "anuvyklack/middleclass",
-      "anuvyklack/animation.nvim",
+    "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>Xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>XX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>cs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>cl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>XL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>XQ",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
     },
-    config = function()
-      vim.o.winwidth = 10
-      vim.o.winminwidth = 10
-      vim.o.equalalways = false
-      require("windows").setup()
-    end,
+  },
+  {
+    "RRethy/vim-illuminate",
     lazy = false,
+    opts = {
+      under_cursor = false,
+    },
+    keys = {
+      {
+        "]]",
+        function()
+          require("illuminate").goto_next_reference(true)
+        end,
+        desc = "illuminate Next reference",
+      },
+      {
+        "[[",
+        function()
+          require("illuminate").goto_prev_reference(true)
+        end,
+        desc = "illuminate Previous reference",
+      },
+    },
+    config = function(_, opts)
+      require("illuminate").configure(opts)
+      dofile(vim.g.base46_cache .. "vim-illuminate")
+    end,
   },
 }

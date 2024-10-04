@@ -8,7 +8,6 @@ local options = {
     json = { "prettierd" },
     sql = { "sqlfmt" },
   },
-
   format_on_save = {
     -- These options will be passed to conform.format()
     timeout_ms = 500,
@@ -16,4 +15,4 @@ local options = {
   },
 }
 
-require("conform").setup(options)
+return options
