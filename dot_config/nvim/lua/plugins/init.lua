@@ -252,6 +252,7 @@ return {
 			current_line_blame = true,
 			current_line_blame_opts = {
 				virt_text_pos = "right_align",
+				delay = 0,
 			},
 		},
 		keys = {
@@ -260,6 +261,7 @@ return {
 				require("gitsigns").blame_line,
 				desc = "Git Blame current line",
 			},
+			-- comment
 			{
 				"<leader>gB",
 				require("gitsigns").toggle_current_line_blame,

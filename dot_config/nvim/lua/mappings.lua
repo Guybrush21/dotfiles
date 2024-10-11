@@ -36,7 +36,6 @@ map(
   { noremap = true, silent = true, desc = "Companion Toggle" }
 )
 map({ "n", "v" }, "<leader>W", "<cmd>'WindowsToggleAutowidth<cr>", { desc = "Toggle Auto Width" })
-map("n", "<leader>gb", require("gitsigns").toggle_current_line_blame, { desc = "Git Blame" })
 map("i", "<C-CR>", function()
   if require("copilot.suggestion").is_visible() then
     require("copilot.suggestion").accept()
@@ -44,6 +43,8 @@ map("i", "<C-CR>", function()
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
   end
 end, { desc = "Copilot Accept" })
+map("n", "<leader>gb", require("gitsigns").blame_line, { desc = "Git Blame current line" })
+map("n", "<leader>gB", require("gitsigns").toggle_current_line_blame, { desc = "Git Blame Toggle" })
 
 if vim.g.neovide then
   map({ "n", "v" }, "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
