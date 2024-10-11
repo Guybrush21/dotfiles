@@ -6,11 +6,10 @@ j#: Fonts {{{
 #: kitty has very powerful font management. You can configure
 #: individual font faces and even specify special fonts for particular
 #: characters.
-
- font_family      FiraCode Nerd Font  
- bold_font        auto
- italic_font      CaskaydiaCove Nerd Font Italic 
- bold_italic_font auto
+# font_family      FiraCode Nerd Font  
+# bold_font        auto
+# italic_font      CaskaydiaCove Nerd Font Italic 
+# bold_italic_font auto
 
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
@@ -2456,3 +2455,11 @@ background_opacity 0.9
 # Adapta Nokto Maia
 include current-theme.conf
 # END_KITTY_THEME
+
+
+# BEGIN_KITTY_FONTS
+font_family      FiraCode Nerd Font 
+bold_font        auto
+italic_font      family="CaskaydiaCove Nerd Font"
+bold_italic_font auto
+# END_KITTY_FONTS
