@@ -8,12 +8,15 @@ map("i", "jk", "<ESC>")
 --   expr = true,
 --   replace_keycodes = false,
 -- })
-
+--
 -- vim.g.copilot_no_tab_map = true
-
+--
 -- map("i", "<C-L>", "<Plug>(copilot-accept-word)")
 -- map({ "n", "i" }, "<C-`>", "<Plug>(copilot-suggest)")
 --
+-- map({ "i" }, "<C-]>", "<Plug>(copilot-next)")
+-- map({ "i" }, "<C-[>", "<Plug>(copilot-previous)")
+-- map({ "n" }, "<C-F12>", "<Plug>(copilot-panel)")
 
 map("n", "<leader>a", vim.lsp.buf.code_action, { desc = "LSP code action" })
 map("n", "<leader>.", vim.lsp.buf.code_action, { desc = "LSP code action" })
@@ -36,13 +39,15 @@ map(
   { noremap = true, silent = true, desc = "Companion Toggle" }
 )
 map({ "n", "v" }, "<leader>W", "<cmd>'WindowsToggleAutowidth<cr>", { desc = "Toggle Auto Width" })
+
 map("i", "<C-CR>", function()
   if require("copilot.suggestion").is_visible() then
     require("copilot.suggestion").accept()
   else
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
   end
 end, { desc = "Copilot Accept" })
+
 map("n", "<leader>gb", require("gitsigns").blame_line, { desc = "Git Blame current line" })
 map("n", "<leader>gB", require("gitsigns").toggle_current_line_blame, { desc = "Git Blame Toggle" })
 
