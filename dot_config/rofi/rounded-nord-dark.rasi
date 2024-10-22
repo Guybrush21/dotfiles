@@ -1,0 +1,10 @@
+/*******************************************************************************
+ * ROUNDED THEME FOR ROFI 
+ * User                 : LR-Tech               
+ * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
+ *******************************************************************************/
+
+@import "base16-theme.rasi"
+
+@import "rounded-common.rasi"
+
