@@ -51,6 +51,13 @@ end, { desc = "Copilot Accept" })
 map("n", "<leader>gb", require("gitsigns").blame_line, { desc = "Git Blame current line" })
 map("n", "<leader>gB", require("gitsigns").toggle_current_line_blame, { desc = "Git Blame Toggle" })
 
+map("n", "<leader>fF", function()
+  require("nvim-tree.api").tree.find_file { focus = true }
+end, { desc = "Tree focus file" })
+
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+
 if vim.g.neovide then
   map({ "n", "v" }, "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
   map({ "n", "v" }, "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
