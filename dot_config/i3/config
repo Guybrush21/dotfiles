@@ -211,9 +211,9 @@ bindsym $mod+r mode "resize"
 
 
 #CUSTOM
-gaps inner 10
-gaps outer 10
-gaps top -4
+gaps inner 4 
+gaps outer 6 
+gaps top -2
 
 
 default_border pixel 2
@@ -221,7 +221,7 @@ default_border pixel 2
 # default applications
 exec_always picom -b --config $HOME/.config/i3/picom.conf  
 exec --no-startup-id ~/.config/i3/load_layout.sh
-
+exec_always xset r rate 200 50
 # Wallpapers
 exec_always feh --bg-fill --randomize ~/wall/ 
 
