@@ -6,7 +6,7 @@ local options = {
     typescript = { "prettierd" },
     javascript = { "prettierd" },
     json = { "prettierd" },
-    sql = { "prettierd", "sqlfmt" },
+    sql = { "sqlfmt" },
   },
   format_on_save = {
     -- These options will be passed to conform.format()

@@ -221,7 +221,6 @@ default_border pixel 2
 # default applications
 exec_always picom -b --config $HOME/.config/i3/picom.conf  
 exec --no-startup-id ~/.config/i3/load_layout.sh
-exec_always xset r rate 200 50
 # Wallpapers
 exec_always feh --bg-fill --randomize ~/wall/ 
 
@@ -232,4 +231,6 @@ exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc &
 exec steam -silent 
 bindsym $mod+p exec --no-startup-id flameshot gui
 bindsym $mod+Ctrl+greater move workspace to output next
+
+exec_always xset r rate 200 50
 
