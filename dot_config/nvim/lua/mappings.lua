@@ -20,6 +20,7 @@ map("i", "jk", "<ESC>")
 
 map("n", "<leader>a", vim.lsp.buf.code_action, { desc = "LSP code action" })
 map("n", "<leader>.", vim.lsp.buf.code_action, { desc = "LSP code action" })
+map("n", "gr", vim.lsp.buf.references, { desc = "LSP Symbol References" })
 map("n", ",", vim.diagnostic.open_float, { desc = "LSP open float" })
 
 map("n", "<F2>", vim.lsp.buf.rename, { desc = "LSP rename" })
