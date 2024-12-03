@@ -41,3 +41,9 @@ lspconfig.vtsls.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
 }
+
+lspconfig.omnisharp.setup {
+  cmd = { "dotnet", vim.fn.stdpath "data" .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+}
