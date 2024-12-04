@@ -42,6 +42,15 @@ lspconfig.vtsls.setup {
   capabilities = nvlsp.capabilities,
 }
 
+lspconfig.eslint.setup {
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+}
+
 lspconfig.omnisharp.setup {
   cmd = { "dotnet", vim.fn.stdpath "data" .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
   on_attach = nvlsp.on_attach,

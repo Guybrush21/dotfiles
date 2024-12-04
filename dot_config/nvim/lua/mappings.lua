@@ -29,7 +29,7 @@ map("n", "gh", vim.lsp.buf.hover, { desc = "LSP hover" })
 
 map(
   { "n", "v" },
-  "<C-a>",
+  "<leader>cc",
   "<cmd>CodeCompanionActions<cr>",
   { noremap = true, silent = true, desc = "Companion Actions" }
 )
