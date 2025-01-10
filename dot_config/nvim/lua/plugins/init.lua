@@ -43,6 +43,7 @@ return {
             end,
           },
         },
+        path_display = { "smart" },
       },
       extensions_list = { "fzf", "ui-select", "themes" },
       extensions = {

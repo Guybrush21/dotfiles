@@ -232,5 +232,5 @@ exec steam -silent
 exec flameshot
 bindsym $mod+Ctrl+greater move workspace to output next
 bindsym Print exec  flameshot gui 
-exec_always xset r rate 200 50
+ 
 

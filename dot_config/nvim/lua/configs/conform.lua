@@ -6,8 +6,10 @@ local options = {
     typescript = { "prettierd" },
     javascript = { "prettierd" },
     json = { "prettierd" },
+    vue = { "prettierd" },
     sql = { "prettierd", "sqlfmt" },
     cs = { "dotnet format" },
+    markdown = { "prettierd" },
   },
   format_on_save = {
     -- These options will be passed to conform.format()

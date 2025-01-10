@@ -27,7 +27,7 @@
     width = 500
 
     # The maximum height of a single notification, excluding the frame.
-    height = 320
+    height = (0, 320)
 
     # Position the notification in the top right corner
     origin = top-right
@@ -82,17 +82,17 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 16
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 16
 
     # Padding between text and icon.
     text_icon_padding = 0
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 0
+    frame_width = 3
 
     # Defines color of the frame around the notification window.
     frame_color = "#c7ccd1"
@@ -101,7 +101,7 @@
     # If value is greater than 0, separator_height will be ignored and a border
     # of size frame_width will be drawn around each notification instead.
     # Click events on gaps do not currently propagate to applications below.
-    gap_size = 0
+    gap_size = 4
 
     # Define a color for the separator.
     # possible values are:
