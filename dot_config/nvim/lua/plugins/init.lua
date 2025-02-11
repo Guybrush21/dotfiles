@@ -25,6 +25,8 @@ return {
         "json",
         "sql",
         "vue",
+        "astro",
+        "markdown",
       },
     },
   },
@@ -299,5 +301,6 @@ return {
     opts = {
       suppressed_dirs = { "~/", "~/Projects", "/" },
     },
+    -- { "windwp/nvim-autopairs", enabled = false },
   },
 }

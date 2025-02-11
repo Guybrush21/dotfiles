@@ -7,7 +7,7 @@ local mason_registry = require "mason-registry"
 local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
   .. "/node_modules/@vue/language-server"
 
-local servers = { "html", "cssls" }
+local servers = { "html", "cssls", "astro", "tailwindcss" }
 
 local nvlsp = require "nvchad.configs.lspconfig"
 
