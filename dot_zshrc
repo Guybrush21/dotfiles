@@ -1,39 +1,35 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-neofetch 
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+ export NVM_DIR="$HOME/.nvm" 
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm 
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# place this after nvm initialization!
+autoload -U add-zsh-hook
 
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 
- zstyle ':omz:update' mode auto      # update automatically without asking
-# Uncomment the following line if pasting URLs and other text is messed up.
-DISABLE_MAGIC_FUNCTIONS="true"
-
-ENABLE_CORRECTION="false"
-
-plugins=( git history-substring-search nvm npm yarn pnpm  )
-zstyle ':omz:plugins:nvm' autoload yes
-zstyle ':omz:plugins:nvm' silent-autoload yes 
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-export NVM_DIR=~/.nvm
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export NVM_DIR="$HOME/.nvm" 
- [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm 
- [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# alias gcloud="docker run --rm --volumes-from gcloud-config gcr.io/google.com/cloudsdktool/google-cloud-cli gcloud"
+#
 
 alias s='kitten ssh' 
 alias dav='cd /home/nic/code/davinci'
@@ -46,5 +42,15 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-alias gcloud="docker run --rm --volumes-from gcloud-config gcr.io/google.com/cloudsdktool/google-cloud-cli gcloud"
 
+alias ga='git add'
+alias gcm='git commit --all --message'
+alias gp='git push'
+alias gl='git pull'
+alias gsw='git switch'
+alias gswc='git switch --create'
+alias pin='pnpm install'
+alias pd='pnpm run dev'
+alias pb='pnpm run build'
+
+neofetch
