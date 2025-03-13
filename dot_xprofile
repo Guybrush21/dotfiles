@@ -1,1 +1,2 @@
 sh ~/.screenlayout/screen.sh 
+xrdb ~/.Xresources

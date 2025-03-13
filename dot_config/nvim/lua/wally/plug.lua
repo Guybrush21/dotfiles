@@ -3,7 +3,19 @@ return {
     'rose-pine/neovim',
     name = 'rose-pine',
     config = function()
-      vim.cmd 'colorscheme rose-pine-moon'
+      require('rose-pine').setup {
+        variant = 'moon',
+        styles = { italic = false },
+        highlight_groups = {
+          Cursor = {},
+
+          Comment = { italic = true },
+          ['@comment'] = { italic = true },
+          CurSearch = { fg = 'base', bg = 'leaf', inherit = false },
+          Search = { fg = 'text', bg = 'leaf', blend = 20, inherit = false },
+        },
+      }
+      vim.cmd.colorscheme 'rose-pine'
     end,
   },
   {
@@ -80,22 +92,7 @@ return {
     end,
   },
   {
-    'rmagatti/auto-session',
-    lazy = false,
-    ---enables autocomplete for opts
-    ---@module "auto-session"
-    ---@type AutoSession.Config
-    opts = {
-      suppressed_dirs = { '~/', '~/Projects', '/' },
-    },
-    -- { "windwp/nvim-autopairs", enabled = false },
-  },
-
-  {
     'akinsho/toggleterm.nvim',
-    version = '*',
-    opts = {--[[ things you want to change go here]]
-    },
   },
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   {

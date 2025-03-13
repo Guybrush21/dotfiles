@@ -33,7 +33,7 @@ load-nvmrc
 ## NVM
 
 alias s='kitten ssh' 
-alias wb='cd /home/nic/code/welbee-monorepo && nvim'
+alias wb='cd /home/nic/code/welbee-monorepo '
 
 # pnpm
 export PNPM_HOME="/home/nic/.local/share/pnpm"
@@ -48,6 +48,7 @@ alias ...='cd ../..'
 
 alias ga='git add'
 alias gcm='git commit --all --message'
+alias gcam='git commit --all --message'
 alias gp='git push'
 alias gl='git pull'
 alias gsw='git switch'
