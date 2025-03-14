@@ -24,6 +24,7 @@
 	selected-active-background: @active-background;
 	separatorcolor: @active-background;
 	bordercolor: @ora;
+    transparency: "real";
 }
 
 #window {
@@ -51,13 +52,14 @@
 	fixed-height: 0;
 	border:       0px dash 0px 0px ;
 	border-color: @bordercolor;
-	spacing:      2px ;
+	spacing:      4px ;
 	scrollbar:    false;
 	padding:      0px ;
+    lines: 8;
 }
 #element {
 	border:  0;
-	padding: 1px ;
+	padding: 12px ;
 }
 #element.normal.normal {
 	background-color: @background;
@@ -112,7 +114,7 @@
 #inputbar {
 	spacing:    0;
 	text-color: @foreground;
-	padding:    1px ;
+	padding:    4px ;
 }
 #case-indicator {
 	spacing:    0;
@@ -123,7 +125,7 @@
 	text-color: @cya;
 }
 #prompt {
-	spacing:    0;
+	spacing:    12;
 	text-color: @grn;
 }
 #inputbar {
@@ -131,7 +133,7 @@
 }
 #textbox-prompt-colon {
 	expand:     false;
-	str:        ":";
-	margin:     0px 0.3em 0em 0em;
+	str:        "|";
+	margin:     0px 0.3em ;
 	text-color: @grn;
 }
