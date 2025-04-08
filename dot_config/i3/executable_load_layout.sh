@@ -1,11 +1,12 @@
 #!/bin/sh
 
 # First we append the saved layout of workspace N to workspace M
-i3-msg "workspace --no-auto-back-and-forth 1:main; append_layout ~/.config/i3/w1.json"
-(kitty &)
-(kitty &)
-(kitty &)
-(kitty &)
+# i3-msg "workspace --no-auto-back-and-forth 1:main; append_layout ~/.config/i3/w1.json"
+# (kitty &)
+# (kitty &)
+# (kitty &)
+# (kitty &)
+(/usr/lib/polkit-kde-authentication-agent-1 &)
 i3-msg "workspace --no-auto-back-and-forth 2:comm; append_layout ~/.config/i3/w2.json"
 (slack &)
 (thunderbird &)

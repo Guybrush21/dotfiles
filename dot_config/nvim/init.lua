@@ -1,18 +1,23 @@
-require 'wally.options'
-require 'wally.remap'
+if vim.g.vscode then
+    -- VSCode extension
+  
+  require 'wally.options'
+  require 'wally.remap'
+else
+    -- ordinary Neovim
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
+  require 'wally.options'
+  require 'wally.remap'
 
-require 'wally.plugins.lazy'
-require 'wally.term'
+  vim.api.nvim_create_autocmd('TextYankPost', {
+    desc = 'Highlight when yanking (copying) text',
+    group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+    callback = function()
+      vim.highlight.on_yank()
+    end,
+  })
 
--- create array of random string
+  require 'wally.plugins.lazy'
+  require 'wally.term'
 
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+end

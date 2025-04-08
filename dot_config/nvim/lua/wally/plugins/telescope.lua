@@ -4,7 +4,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
   branch = '0.1.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    {
+    { -- If encountering errors, see telescope-fzf-native README for installation instructions
       'nvim-telescope/telescope-fzf-native.nvim',
       build = 'make',
       cond = function()
@@ -31,10 +31,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>fW', builtin.grep_string, { desc = 'Search current Word' })
     vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = 'Search by Grep' })
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Search Diagnostics' })
-    vim.keymap.set('n', '<leader>fl', builtin.resume, { desc = 'Search Resume' })
+    vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Search Resume' })
+    vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '  Find existing buffers' })
   end,
-  opts = {
-    path_display = { 'smart' },
-  },
 }

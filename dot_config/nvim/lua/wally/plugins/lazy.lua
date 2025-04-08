@@ -10,6 +10,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   {
+    defaults = { lazy = true },
     'folke/lazydev.nvim',
     ft = 'lua',
     opts = {
@@ -25,7 +26,7 @@ require('lazy').setup({
   require 'wally.plugins.conform',
   require 'wally.plugins.nvim-cmp',
   require 'wally.plugins.nvim-treesitter',
-  -- require 'wally.plugins.debug',
+  require 'wally.plugins.debug',
   require 'wally.plugins.neo-tree',
   require 'wally.plugins.gitsigns',
   require 'wally.plugins.copilot',

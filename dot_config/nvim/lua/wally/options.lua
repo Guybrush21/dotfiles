@@ -6,11 +6,7 @@ vim.opt.number = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
--- vim.opt.tabstop = 4
--- vim.opt.softtabstop = 4
--- vim.opt.shiftwidth = 4
---vim.opt.expandtab = true
---vim.opt.smarttab = true
+vim.opt.laststatus = 3
 
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2

@@ -173,3 +173,9 @@ symbol = " "
 
 [gradle]
 symbol = " "
+
+[os]
+disabled=false
+
+[gcloud]
+disabled=true
