@@ -1,10 +1,10 @@
 if vim.g.vscode then
-    -- VSCode extension
-  
+  -- VSCode extension
+
   require 'wally.options'
   require 'wally.remap'
 else
-    -- ordinary Neovim
+  -- ordinary Neovim
 
   require 'wally.options'
   require 'wally.remap'
@@ -19,5 +19,4 @@ else
 
   require 'wally.plugins.lazy'
   require 'wally.term'
-
 end

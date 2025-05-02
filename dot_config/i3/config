@@ -231,5 +231,6 @@ exec steam -silent
 exec flameshot
 bindsym $mod+Ctrl+greater move workspace to output next
 bindsym Print exec  flameshot gui 
- 
+
+exec --no-startup-id xset s off
 
