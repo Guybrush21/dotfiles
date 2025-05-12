@@ -1,4 +1,4 @@
-return { -- Fuzzy Finder (files, lsp, etc)
+return {
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
   branch = '0.1.x',
@@ -16,6 +16,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
   },
   config = function()
     require('telescope').setup {
+      defaults = {
+        layout_config = {
+          prompt_position = 'top',
+        },
+        path_display = { 'smart' },
+        sorting_strategy = 'ascending',
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
