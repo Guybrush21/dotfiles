@@ -22,6 +22,7 @@ return {
       sql = { 'prettierd', 'sqlfmt' },
       cs = { 'dotnet format' },
       markdown = { 'prettierd' },
+      astro = { 'prettierd' },
     },
   },
 }
