@@ -210,12 +210,14 @@ bindsym $mod+r mode "resize"
 
 
 #CUSTOM
-gaps inner 4 
-gaps outer 6 
+gaps inner 2 
+gaps outer 2 
 gaps top -2
 
+smart_borders on
+smart_gaps on
 
-default_border pixel 2
+default_border pixel 1
 
 # default applications
 exec_always picom -b --config $HOME/.config/i3/picom.conf  
@@ -233,5 +235,5 @@ exec flameshot
 bindsym $mod+Ctrl+greater move workspace to output next
 bindsym Print exec  flameshot gui 
 
-exec --no-startup-id xset s off
+exec_always xset s off -dpms
 
