@@ -75,7 +75,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 title_align center
 # start a terminal
-bindsym $mod+Return exec kitty 
+bindsym $mod+Return exec ghostty 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -126,29 +126,27 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+space floating toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:main"
-set $ws2 "2:comm"
-set $ws3 "3:browser"
-set $ws4 "4:data"
+set $ws1 "1:code"
+set $ws2 "2:chrome"
+set $ws3 "3:terminals"
+set $ws4 "4:database"
 set $ws5 "5:firefox"
 set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8:radio"
-set $ws9 "9:junk"
-set $ws10 "10:terminals"
+set $ws7 "7:other"
+set $ws8 "8:comm"
+set $ws9 "9:media"
+set $ws10 "10:misc"
+
+workspace $ws1 output DP-4
+workspace $ws8 output HDMI-0
+workspace $ws7 output HDMI-1
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -210,12 +208,12 @@ bindsym $mod+r mode "resize"
 
 
 #CUSTOM
-gaps inner 2 
+gaps inner 4 
 gaps outer 2 
 gaps top -2
 
-smart_borders on
-smart_gaps on
+# smart_borders off 
+smart_gaps on 
 
 default_border pixel 1
 
