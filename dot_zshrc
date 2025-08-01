@@ -103,15 +103,13 @@ load-nvmrc
 ## NVM
 
 # pnpm
-export PNPM_HOME="/home/nic/.local/share/pnpm"
+export PNPM_HOME="~/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
-alias s='kitten ssh' 
-alias wb='cd /home/nic/code/welbee-monorepo '
 
 alias ..='cd ..'
 alias ...='cd ../..'
