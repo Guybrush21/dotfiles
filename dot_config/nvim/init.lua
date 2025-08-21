@@ -1,11 +1,7 @@
 if vim.g.vscode then
-  -- VSCode extension
-
   require 'wally.options'
   require 'wally.remap'
 else
-  -- ordinary Neovim
-
   require 'wally.options'
   require 'wally.remap'
 

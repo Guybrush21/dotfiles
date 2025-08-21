@@ -43,7 +43,8 @@ window-padding-x = 2
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = rose-pine-moon
+theme = OneHalfDark
+#rose-pine-moon
 window-decoration = server
 gtk-titlebar = false
 

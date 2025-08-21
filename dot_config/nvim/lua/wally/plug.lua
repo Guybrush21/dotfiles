@@ -15,11 +15,19 @@ return {
           Search = { fg = 'text', bg = 'leaf', blend = 20, inherit = false },
         },
       }
-      vim.cmd.colorscheme 'rose-pine'
+      -- vim.cmd.colorscheme 'rose-pine'
     end,
   },
   {
     'navarasu/onedark.nvim',
+    priority = 1000,
+    config = function()
+      require('onedark').setup {
+        style = 'dark',
+      }
+      -- Enable theme
+      require('onedark').load()
+    end,
   },
   {
     'karb94/neoscroll.nvim',

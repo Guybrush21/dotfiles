@@ -24,7 +24,6 @@ require('lazy').setup({
   require 'wally.plugins.telescope',
   require 'wally.plugins.lsp-config',
   require 'wally.plugins.conform',
-  --  require 'wally.plugins.nvim-cmp',
   require 'wally.plugins.blink',
   require 'wally.plugins.nvim-treesitter',
   require 'wally.plugins.debug',
