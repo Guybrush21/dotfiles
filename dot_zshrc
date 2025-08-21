@@ -76,6 +76,7 @@ zle -N down-line-or-beginning-search
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # place this after nvm initialization!
+
 autoload -U add-zsh-hook
 
 load-nvmrc() {
@@ -97,19 +98,23 @@ load-nvmrc() {
   fi
 }
 
+## add hook only if nvm is installed 
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  add-zsh-hook chpwd load-nvmrc
+fi
 add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
-## NVM
 
 # pnpm
-export PNPM_HOME="~/.local/share/pnpm"
+export PNPM_HOME="/home/nic/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
+alias s='kitten ssh' 
+alias wb='cd /home/nic/code/welbee-monorepo '
 
 alias ..='cd ..'
 alias ...='cd ../..'
