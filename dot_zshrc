@@ -135,6 +135,8 @@ alias p='pnpm'
 alias ls='ls -F --color'   #long list,show almost all,show type,human readable
 alias ll='ls -l --color'      #long list
 
+alias du='du -h -d 1'  
+
 source <(fzf --zsh)
 
 # opencode
