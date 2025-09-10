@@ -23,32 +23,40 @@ return {
     })
 
     local mason_registry = require 'mason-registry'
-    local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
 
-    local servers = {
-      -- prettierd = {},
-      -- sqlfmt = {},
-      astro = {},
-      vtsls = {
-        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-        settings = {
-          vtsls = {
-            -- autoUseWorkspaceTsdk = true,
-            tsserver = {
-              globalPlugins = {
-                {
-                  name = '@vue/typescript-plugin',
-                  location = vue_language_server_path,
-                  languages = { 'vue' },
-                  configNamespace = 'typescript',
-                  enableForWorkspaceTypeScriptVersions = true,
-                },
-              },
+    local vue_language_server_path = vim.fn.expand '$MASON/packages' .. '/vue-language-server' .. '/node_modules/@vue/language-server'
+    local vue_plugin = {
+      name = '@vue/typescript-plugin',
+      location = vue_language_server_path,
+      languages = { 'vue' },
+      configNamespace = 'typescript',
+    }
+    local vtsls_config = {
+      settings = {
+        vtsls = {
+          tsserver = {
+            globalPlugins = {
+              vue_plugin,
             },
           },
         },
       },
-      volar = {},
+      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    }
+
+    local servers = {
+      astro = {},
+      vtsls = {
+        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+        settings = {
+          tsserver = {
+            globalPlugins = {
+              vue_plugin,
+            },
+          },
+        },
+      },
+      vue_ls = {},
       html = {},
       cssls = {},
       tailwindcss = {},
@@ -71,6 +79,7 @@ return {
         },
       },
     }
+
     local ensure_installed = vim.tbl_keys(servers or {})
     -- enable blink lsp capabilities
     local lspconfig = require 'lspconfig'
