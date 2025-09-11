@@ -56,7 +56,6 @@ return {
           },
         },
       },
-      vue_ls = {},
       html = {},
       cssls = {},
       tailwindcss = {},
