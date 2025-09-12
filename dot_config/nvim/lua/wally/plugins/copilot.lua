@@ -12,7 +12,6 @@ return {
         keymap = {
           accept = '<C-CR>',
           accept_word = '<C-l>',
-
           accept_line = '<C-LeftS-l>',
           next = '<C-]>',
           prev = false,
