@@ -23,6 +23,11 @@ return {
     use_libuv_file_watcher = true,
     sources = { 'filesystem', 'buffers', 'git_status', 'document_symbols' },
     filesystem = {
+      filtered_items = {
+        always_show = { '.env' },
+        hide_dotfiles = false,
+        hide_gitignored = true,
+      },
       window = {
         mappings = {
           ['\\'] = 'close_window',
