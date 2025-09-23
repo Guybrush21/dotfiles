@@ -122,4 +122,5 @@ return {
     opts = { -- set to setup table
     },
   },
+  { 'nvim-java/nvim-java' },
 }

@@ -23,6 +23,7 @@ return {
       cs = { 'dotnet format' },
       markdown = { 'prettierd' },
       astro = { 'prettierd' },
+      yaml = { 'prettierd' },
     },
   },
 }
