@@ -15,4 +15,5 @@ else
 
   require 'wally.plugins.lazy'
   require 'wally.term'
+  -- vim.lsp.enable 'lua'
 end

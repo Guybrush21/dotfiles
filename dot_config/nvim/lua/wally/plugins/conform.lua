@@ -24,6 +24,7 @@ return {
       markdown = { 'prettierd' },
       astro = { 'prettierd' },
       yaml = { 'prettierd' },
+      xml = { 'prettierd', 'xmlformatter' },
     },
   },
 }

@@ -31,7 +31,7 @@ return {
     }
 
     local servers = {
-      astro = {},
+      -- astro = {},
       vtsls = {
         filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
         settings = {
@@ -68,12 +68,11 @@ return {
 
     local ensure_installed = vim.tbl_keys(servers or {})
     -- enable blink lsp capabilities
-    local lspconfig = require 'lspconfig'
     for server, config in pairs(servers) do
       -- passing config.capabilities to blink.cmp merges with the capabilities in your
       -- `opts[server].capabilities, if you've defined it
       config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-      lspconfig[server].setup(config)
+      vim.lsp.config(server, config)
     end
 
     local capabilities = require('blink.cmp').get_lsp_capabilities()
@@ -90,7 +89,7 @@ return {
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for ts_ls)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
+          vim.lsp.enable(server)
         end,
       },
     }
