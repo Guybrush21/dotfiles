@@ -22,6 +22,8 @@ return {
       end,
     })
 
+    local base_on_attach = vim.lsp.config.eslint.on_attach
+
     local vue_language_server_path = vim.fn.expand '$MASON/packages' .. '/vue-language-server' .. '/node_modules/@vue/language-server'
     local vue_plugin = {
       name = '@vue/typescript-plugin',
@@ -31,7 +33,6 @@ return {
     }
 
     local servers = {
-      -- astro = {},
       vtsls = {
         filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
         settings = {
@@ -48,13 +49,17 @@ return {
       jdtls = {},
       eslint = {
         on_attach = function(client, bufnr)
+          if not base_on_attach then
+            return
+          end
+
+          base_on_attach(client, bufnr)
           vim.api.nvim_create_autocmd('BufWritePre', {
             buffer = bufnr,
-            command = 'EslintFixAll',
+            command = 'LspEslintFixAll',
           })
         end,
       },
-      --stylua = {},
       lua_ls = {
         settings = {
           Lua = {
@@ -94,4 +99,6 @@ return {
       },
     }
   end,
+
+  vim.lsp.config('eslint', {}),
 }

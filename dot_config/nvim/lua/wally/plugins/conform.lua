@@ -15,6 +15,7 @@ return {
       lua = { 'stylua' },
       css = { 'prettierd' },
       html = { 'prettierd' },
+      typescriptreact = { 'prettierd' },
       typescript = { 'prettierd' },
       javascript = { 'prettierd' },
       json = { 'prettierd' },
