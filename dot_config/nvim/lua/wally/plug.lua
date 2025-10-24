@@ -103,7 +103,6 @@ return {
     'akinsho/toggleterm.nvim',
   },
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-  {},
   {
     'echasnovski/mini.nvim',
     config = function()
@@ -119,8 +118,7 @@ return {
   {
     'catgoose/nvim-colorizer.lua',
     event = 'BufReadPre',
-    opts = { -- set to setup table
-    },
+    opts = { Names = false },
   },
   { 'nvim-java/nvim-java' },
 }
