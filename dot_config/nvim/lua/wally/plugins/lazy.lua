@@ -30,6 +30,7 @@ require('lazy').setup({
   require 'wally.plugins.neo-tree',
   require 'wally.plugins.gitsigns',
   require 'wally.plugins.copilot',
+  require 'wally.plugins.neotest',
   { import = 'wally.plug' },
 }, {
   ui = {

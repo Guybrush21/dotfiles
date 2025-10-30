@@ -19,6 +19,7 @@ return {
       typescript = { 'prettierd' },
       javascript = { 'prettierd' },
       json = { 'prettierd' },
+      jsonc = { 'prettierd' },
       vue = { 'prettierd' },
       sql = { 'prettierd', 'sqlfmt' },
       cs = { 'dotnet format' },
