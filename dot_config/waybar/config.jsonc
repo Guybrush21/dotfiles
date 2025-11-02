@@ -1,0 +1,125 @@
+{
+  "font": "sans:size=10",
+  "layer": "top",
+  "position": "top",
+  "margin-bottom": -10,
+  "spacing": 3,
+  "reload_style_on_change": true,
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+
+  "modules-center": ["clock"],
+
+  "modules-right": [
+    "tray",
+    "disk",
+    "disk#home",
+    "cpu",
+    "memory",
+    "temperature",
+    "pulseaudio",
+
+    "custom/power",
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{name}: {icon}",
+    "format-icons": {
+      "focus": "",
+      "active": "",
+      "default": "",
+    },
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "separate-outputs": true,
+  },
+
+  "clock": {
+    "format": " {:%H:%M -  %d %B} ",
+    "tooltip-format": "<tt><big>{calendar}</big></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#56b6c2'><b>{}</b></span>",
+        "days": "<span color='#abb2bf'><b>{}</b></span>",
+        "weeks": "<span color='#98c379'><b>W{}</b></span>",
+        "weekdays": "<span color='#e5c07b'><b>{}</b></span>",
+        "today": "<span color='#e86671'><b><u>{}</u></b></span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "tz_up",
+      "on-scroll-down": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+  },
+  "network": {
+    "format-wifi": "󰤢",
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰤠 ",
+    "interval": 5,
+    "tooltip-format": "{essid} ({signalStrength}%)",
+    "on-click": "nm-connection-editor",
+  },
+  "tray": {
+    "spacing": 10,
+  },
+  "temperature": {
+    // "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", ""],
+  },
+  "cpu": {
+    "interval": 1,
+    // "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+    // "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "format": "  {usage}%",
+    "on-click": "ghostty -e htop",
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": "    {percentage}%",
+    "tooltip-format": "Memory",
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", " "],
+    },
+    "on-click": "pavucontrol",
+    "scroll-step": 5,
+  },
+  "disk": {
+    "format": "  / {percentage_used}%",
+    "path": "/",
+    "interval": 30,
+  },
+  "disk#home": {
+    "format": "  /home {percentage_used}%",
+    "path": "/home",
+    "interval": 30,
+  },
+  "custom/power": {
+    "format": "⏻ ",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "~/.config/waybar/power_menu.xml",
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+    },
+  },
+}
