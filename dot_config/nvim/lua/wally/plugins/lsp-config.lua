@@ -99,6 +99,4 @@ return {
       },
     }
   end,
-
-  vim.lsp.config('eslint', {}),
 }
