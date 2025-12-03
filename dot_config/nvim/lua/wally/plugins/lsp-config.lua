@@ -47,6 +47,7 @@ return {
       cssls = {},
       tailwindcss = {},
       jdtls = {},
+      omnisharp = {},
       eslint = {
         on_attach = function(client, bufnr)
           if not base_on_attach then
