@@ -10,7 +10,7 @@ return {
         hide_during_completion = false,
         debounce = 25,
         keymap = {
-          accept = '<C-CR>',
+          accept = '<C-j>',
           accept_word = '<C-l>',
           accept_line = '<C-LeftS-l>',
           next = '<C-]>',
