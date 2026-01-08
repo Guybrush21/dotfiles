@@ -19,6 +19,7 @@ vim.opt.autoindent = true
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
+
 vim.opt.breakindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -70,3 +71,5 @@ vim.diagnostic.config {
     end,
   },
 }
+
+vim.o.winborder = 'rounded'
