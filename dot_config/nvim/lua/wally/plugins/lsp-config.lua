@@ -36,9 +36,11 @@ return {
       vtsls = {
         filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
         settings = {
-          tsserver = {
-            globalPlugins = {
-              vue_plugin,
+          vtsls = {
+            tsserver = {
+              globalPlugins = {
+                vue_plugin,
+              },
             },
           },
         },
