@@ -51,3 +51,6 @@ gtk-titlebar = false
 # disable ctrl + a for nvim
 keybind = all:ctrl+enter=unbind
 shell-integration-features = ssh-terminfo
+
+# shaders
+custom-shader = shader/warp.glsl
