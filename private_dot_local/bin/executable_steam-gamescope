@@ -1,0 +1,2 @@
+#!/bin/bash
+exec gamescope -e -W 2560 -H 1440 -r 144 -f -- steam -silent "$@"
