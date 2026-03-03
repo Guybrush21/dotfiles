@@ -53,4 +53,4 @@ keybind = all:ctrl+enter=unbind
 shell-integration-features = ssh-terminfo
 
 # shaders
-custom-shader = shader/warp.glsl
+custom-shader = shaders/warp.glsl

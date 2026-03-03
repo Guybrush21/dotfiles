@@ -140,7 +140,7 @@ alias du='du -h -d 1'
 source <(fzf --zsh)
 
 # opencode
-export PATH=/home/nic/.opencode/bin:$PATH
+export PATH=~/.opencode/bin:$PATH
 
 eval "$(starship init zsh)"
 
