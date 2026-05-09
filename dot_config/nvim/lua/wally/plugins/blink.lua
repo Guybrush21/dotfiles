@@ -5,7 +5,8 @@ return {
   version = '1.*',
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
-  opts = {
+  config = function()
+    require('blink.cmp').setup {
     -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
     -- 'super-tab' for mappings similar to vscode (tab to accept)
     -- 'enter' for enter to accept
@@ -101,8 +102,12 @@ return {
     -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
     --
     -- See the fuzzy documentation for more information
-    fuzzy = { implementation = 'prefer_rust_with_warning' },
-    signature = { enabled = true },
-  },
-  opts_extend = { 'sources.default' },
+      fuzzy = { implementation = 'prefer_rust_with_warning' },
+      signature = { enabled = true },
+    }
+
+    vim.lsp.config('*', {
+      capabilities = require('blink.cmp').get_lsp_capabilities(),
+    })
+  end,
 }

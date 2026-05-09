@@ -24,6 +24,7 @@ vim.opt.breakindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
+vim.opt.colorcolumn = '90'
 
 vim.opt.autoread = true
 vim.opt.updatetime = 50

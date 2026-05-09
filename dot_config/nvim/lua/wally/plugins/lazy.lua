@@ -8,7 +8,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
+require('lazy').setup {
   {
     defaults = { lazy = true },
     'folke/lazydev.nvim',
@@ -22,30 +22,13 @@ require('lazy').setup({
   },
   require 'wally.plugins.which-key',
   require 'wally.plugins.telescope',
-  require 'wally.plugins.lsp-config',
+  require 'wally.plugins.lsp',
   require 'wally.plugins.conform',
   require 'wally.plugins.blink',
-  require 'wally.plugins.nvim-treesitter',
   require 'wally.plugins.debug',
   require 'wally.plugins.neo-tree',
   require 'wally.plugins.gitsigns',
   require 'wally.plugins.copilot',
   require 'wally.plugins.neotest',
   { import = 'wally.plug' },
-}, {
-  ui = {
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
-  },
-})
+}

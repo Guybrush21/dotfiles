@@ -16,5 +16,14 @@ else
   require 'wally.plugins.lazy'
   require 'wally.term'
 
-  -- vim.lsp.enable 'lua'
+  vim.lsp.enable {
+    'vtsls',
+    'html',
+    'cssls',
+    'tailwindcss',
+    'jdtls',
+    'omnisharp',
+    'eslint',
+    'lua_ls',
+  }
 end

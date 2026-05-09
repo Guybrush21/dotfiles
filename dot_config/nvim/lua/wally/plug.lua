@@ -25,7 +25,6 @@ return {
       require('onedark').setup {
         style = 'dark',
       }
-      -- Enable theme
       require('onedark').load()
     end,
   },
@@ -74,7 +73,7 @@ return {
     },
   },
   {
-    'RRethy/vim-illuminate',
+    'UrsaDK/vim-illuminate',
     lazy = false,
     opts = {
       under_cursor = false,
@@ -115,36 +114,15 @@ return {
       end
     end,
   },
-  {
-    'catgoose/nvim-colorizer.lua',
-    event = 'BufReadPre',
-    opts = { Names = false },
-  },
-  -- { 'nvim-java/nvim-java' },
 
   { 'sindrets/diffview.nvim' },
-  -- {
-  --   'https://gitlab.com/schrieveslaach/sonarlint.nvim',
-  --   config = function()
-  --     require('sonarlint').setup {
-  --       server = {
-  --         cmd = vim
-  --           .iter({
-  --             'java',
-  --             -- require('schrieveslaach.jvm').home(17) .. '/bin/java',
-  --             -- "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005",
-  --             '-jar',
-  --             vim.fn.expand '$MASON/packages/sonarlint-language-server/extension/server/sonarlint-ls.jar',
-  --             '-stdio',
-  --             '-analyzers',
-  --             vim.fn.expand('$MASON/share/sonarlint-analyzers/*.jar', true, 1),
-  --           })
-  --           :flatten()
-  --           :totable(),
-  --       },
-  --
-  --       filetypes = { 'java' },
-  --     }
-  --   end,
-  -- },
+
+  { 'j-hui/fidget.nvim', opts = {} },
+
+  {
+    'seblyng/roslyn.nvim',
+    ---@module 'roslyn.config'
+    ---@type RoslynNvimConfig
+    opts = {},
+  },
 }

@@ -43,6 +43,7 @@ map('n', 'gr', vim.lsp.buf.references, { desc = 'LSP Symbol References' })
 map('n', 'gd', vim.lsp.buf.definition, { desc = 'LSP Symbol Definition' })
 map('n', ',', vim.diagnostic.open_float, { desc = 'LSP open float' })
 map('n', 'gh', vim.lsp.buf.hover, { desc = 'LSP hover' })
+map('n', '<F2>', vim.lsp.buf.rename, { desc = 'Rename' })
 
 map({ 'n', 'i', 'v' }, '<C-s>', '<cmd> w <cr>')
 
