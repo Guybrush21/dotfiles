@@ -22,7 +22,6 @@ require('lazy').setup {
   },
   require 'wally.plugins.which-key',
   require 'wally.plugins.telescope',
-  require 'wally.plugins.lsp',
   require 'wally.plugins.conform',
   require 'wally.plugins.blink',
   require 'wally.plugins.debug',
