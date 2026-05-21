@@ -27,6 +27,7 @@ return {
       astro = { 'prettierd' },
       yaml = { 'prettierd' },
       xml = { 'prettierd', 'xmlformatter' },
+
     },
   },
 }
