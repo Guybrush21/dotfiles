@@ -29,5 +29,6 @@ require('lazy').setup {
   require 'wally.plugins.gitsigns',
   require 'wally.plugins.copilot',
   require 'wally.plugins.neotest',
+  require 'wally.plugins.mason',
   { import = 'wally.plug' },
 }
