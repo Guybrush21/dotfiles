@@ -1,3 +1,3 @@
 #/bin/sh!
 
-(mpv -vo=gpu "https://www.youtube.com/watch?v=IxPANmjPaek" &)
+(mpv -vo=gpu-next "https://www.youtube.com/watch?v=IxPANmjPaek" &)
