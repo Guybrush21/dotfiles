@@ -21,8 +21,6 @@ else
     'html',
     'cssls',
     'tailwindcss',
-    'jdtls',
-    'omnisharp',
     'eslint',
     'lua_ls',
   }

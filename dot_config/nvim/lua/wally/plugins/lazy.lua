@@ -30,5 +30,7 @@ require('lazy').setup {
   require 'wally.plugins.copilot',
   require 'wally.plugins.neotest',
   require 'wally.plugins.mason',
+  require 'wally.plugins.lspconfig',
+  require 'wally.plugins.trouble',
   { import = 'wally.plug' },
 }
