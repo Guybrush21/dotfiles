@@ -17,6 +17,7 @@ else
   require 'wally.term'
 
   vim.lsp.enable {
+    'astro',
     'vtsls',
     'html',
     'cssls',
