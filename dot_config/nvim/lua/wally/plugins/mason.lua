@@ -10,7 +10,6 @@ return {
         'css-lsp',
         'tailwindcss-language-server',
         'jdtls',
-        'omnisharp',
         'eslint-lsp',
         'lua-language-server',
       },
