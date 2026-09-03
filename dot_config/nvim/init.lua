@@ -16,6 +16,8 @@ else
   require 'wally.plugins.lazy'
   require 'wally.term'
 
+  vim.cmd("colorscheme tokyonight")
+
   vim.lsp.enable {
     'astro',
     'vtsls',
@@ -24,5 +26,6 @@ else
     'tailwindcss',
     'eslint',
     'lua_ls',
+    'roslyn',
   }
 end

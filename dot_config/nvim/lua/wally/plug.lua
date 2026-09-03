@@ -8,7 +8,6 @@ return {
         styles = { italic = false },
         highlight_groups = {
           Cursor = {},
-
           Comment = { italic = true },
           ['@comment'] = { italic = true },
           CurSearch = { fg = 'base', bg = 'leaf', inherit = false },
@@ -19,14 +18,25 @@ return {
     end,
   },
   {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000
+  },
+  {
     'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
       require('onedark').setup {
         style = 'dark',
       }
-      require('onedark').load()
+      -- require('onedark').load()
     end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
   },
   {
     'karb94/neoscroll.nvim',
@@ -35,7 +45,6 @@ return {
       require('neoscroll').setup()
     end,
   },
-
   {
     'UrsaDK/vim-illuminate',
     lazy = false,
@@ -80,7 +89,7 @@ return {
   },
 
   { 'sindrets/diffview.nvim' },
-  { 'j-hui/fidget.nvim', opts = {} },
+  { 'j-hui/fidget.nvim',        opts = {} },
   {
     'seblyng/roslyn.nvim',
     ---@module 'roslyn.config'
