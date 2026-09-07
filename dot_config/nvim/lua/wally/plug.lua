@@ -18,9 +18,9 @@ return {
     end,
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
   },
   {
     'navarasu/onedark.nvim',
@@ -33,7 +33,7 @@ return {
     end,
   },
   {
-    "folke/tokyonight.nvim",
+    'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
     opts = {},
@@ -89,7 +89,7 @@ return {
   },
 
   { 'sindrets/diffview.nvim' },
-  { 'j-hui/fidget.nvim',        opts = {} },
+  { 'j-hui/fidget.nvim', opts = {} },
   {
     'seblyng/roslyn.nvim',
     ---@module 'roslyn.config'
@@ -97,21 +97,49 @@ return {
     opts = {},
   },
   {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       local harpoon = require 'harpoon'
       harpoon:setup()
 
-      vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-      vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
-      vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
-      vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
-      vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
-      vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
+      vim.keymap.set('n', '<leader>a', function()
+        harpoon:list():add()
+      end, { desc = 'Harpoon: add file' })
+      vim.keymap.set('n', '<C-e>', function()
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end, { desc = 'Harpoon: toggle menu' })
+      vim.keymap.set('n', '<leader>1', function()
+        harpoon:list():select(1)
+      end, { desc = 'Harpoon: select 1' })
+      vim.keymap.set('n', '<leader>2', function()
+        harpoon:list():select(2)
+      end, { desc = 'Harpoon: select 2' })
+      vim.keymap.set('n', '<leader>3', function()
+        harpoon:list():select(3)
+      end, { desc = 'Harpoon: select 3' })
+      vim.keymap.set('n', '<leader>4', function()
+        harpoon:list():select(4)
+      end, { desc = 'Harpoon: select 4' })
     end,
-  }
-
+  },
+  {
+    's1n7ax/nvim-window-picker',
+    name = 'window-picker',
+    event = 'VeryLazy',
+    version = '2.*',
+    config = function()
+      require('window-picker').setup {
+        filter_rules = {
+          include_current_win = false,
+          autoselect_one = false,
+          bo = {
+            filetype = { 'neo-tree', 'neo-tree-popup', 'notify' },
+            buftype = { 'terminal', 'quickfix' },
+          },
+        },
+      }
+    end,
+  },
 }

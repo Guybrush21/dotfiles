@@ -8,7 +8,7 @@ return {
       return {
         timeout_ms = 500,
         stop_after_first = true,
-        lsp_format = 'fallback',
+        -- lsp_format = 'fallback',
       }
     end,
     formatters_by_ft = {
@@ -22,7 +22,7 @@ return {
       jsonc = { 'prettierd' },
       vue = { 'prettierd' },
       sql = { 'prettierd', 'sqlfmt' },
-      cs = { 'dotnet format' },
+      -- cs = { 'dotnet format' },
       markdown = { 'prettierd' },
       astro = { 'prettierd' },
       yaml = { 'prettierd' },
