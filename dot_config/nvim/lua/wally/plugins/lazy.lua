@@ -32,5 +32,7 @@ require('lazy').setup {
   require 'wally.plugins.mason',
   require 'wally.plugins.lspconfig',
   require 'wally.plugins.trouble',
+  require 'wally.plugins.harpoon',
   { import = 'wally.plug' },
+  { import = 'wally.themes' },
 }

@@ -13,7 +13,7 @@ return {
       end,
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
-    { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+    { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
     require('telescope').setup {
@@ -41,6 +41,7 @@ return {
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Search Diagnostics' })
     vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Search Resume' })
     vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
-    vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '  Find existing buffers' })
+    vim.keymap.set('n', '<leader>fg', builtin.git_status, { desc = 'Search Git Status Files' })
+    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '  Find existing buffers' })
   end,
 }
