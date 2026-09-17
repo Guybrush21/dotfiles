@@ -6,10 +6,10 @@
 	
 [credential "https://github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !/nix/store/h47p0bap84nlnx8232ay46l1f09xrc8b-gh-2.83.2/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !/nix/store/h47p0bap84nlnx8232ay46l1f09xrc8b-gh-2.83.2/bin/gh auth git-credential
 [push]
 	autoSetupRemote = true
 [http]

@@ -146,3 +146,5 @@ export PATH=~/.opencode/bin:$PATH
 eval "$(starship init zsh)"
 
 export PATH="$HOME/.local/bin:$PATH"
+
+[ -f "$HOME/.config/zsh/homelab.zsh" ] && source "$HOME/.config/zsh/homelab.zsh"
