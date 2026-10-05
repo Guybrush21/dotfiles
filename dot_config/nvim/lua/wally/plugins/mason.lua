@@ -16,6 +16,7 @@ return {
         'netcoredbg',
         'prettierd',
         'roslyn-language-server',
+        'csharpier',
       },
     },
   },

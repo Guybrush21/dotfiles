@@ -2,6 +2,7 @@ local map = vim.keymap.set
 
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+map('n', '<leader>Q', vim.diagnostic.setqflist, { desc = 'Open workspace diagnostics [Q]uickfix list' })
 
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 

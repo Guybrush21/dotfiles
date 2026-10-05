@@ -26,7 +26,7 @@ else
     'tailwindcss',
     'eslint',
     'lua_ls',
-    'roslyn',
+    -- 'roslyn_ls',
     'angularls',
   }
 end

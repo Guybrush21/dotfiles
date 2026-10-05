@@ -25,9 +25,6 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
 
-vim.opt.autoread = true
-vim.opt.updatetime = 50
-vim.opt.timeoutlen = 300
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.list = true
@@ -35,7 +32,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 20
 vim.opt.wrap = true
 
 vim.opt.swapfile = false
@@ -44,6 +41,23 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+vim.o.winborder = 'rounded'
+
+-- better :find
+vim.opt.path:append '**'
+vim.opt.wildmenu = true
+vim.opt.wildoptions = { 'pum', 'fuzzy' }
+
+-- smart exlcude for repo .NET / Angular / Node
+vim.opt.wildignore:append {
+  '**/node_modules/**',
+  '**/bin/**',
+  '**/obj/**',
+  '**/dist/**',
+  '**/.git/**',
+  '**/.angular/**',
+}
 
 vim.diagnostic.config {
   severity_sort = true,
@@ -72,18 +86,16 @@ vim.diagnostic.config {
   },
 }
 
-vim.o.winborder = 'rounded'
-
-if os.getenv("SSH_TTY") ~= nil or os.getenv("SSH_CONNECTION") ~= nil then
+if os.getenv 'SSH_TTY' ~= nil or os.getenv 'SSH_CONNECTION' ~= nil then
   vim.g.clipboard = {
     name = 'OSC 52',
     copy = {
-      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+      ['+'] = require('vim.ui.clipboard.osc52').copy '+',
+      ['*'] = require('vim.ui.clipboard.osc52').copy '*',
     },
     paste = {
-      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+      ['+'] = require('vim.ui.clipboard.osc52').paste '+',
+      ['*'] = require('vim.ui.clipboard.osc52').paste '*',
     },
   }
 end
