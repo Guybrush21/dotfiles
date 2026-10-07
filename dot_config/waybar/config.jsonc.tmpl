@@ -6,32 +6,40 @@
   "spacing": 3,
   "reload_style_on_change": true,
 
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+{{- $laptop := glob "/sys/class/power_supply/BAT*" }}
+  "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
 
   "modules-center": ["clock"],
 
   "modules-right": [
     "tray",
+{{- if $laptop }}
+    "network",
+    "power-profiles-daemon",
+    "backlight",
+    "battery",
+{{- else }}
     "disk",
     "disk#home",
+    "temperature",
+{{- end }}
     "cpu",
     "memory",
-    "temperature",
     "pulseaudio",
 
     "custom/power",
   ],
 
-  "hyprland/workspaces": {
+  "sway/workspaces": {
     "format": "{name}: {icon}",
     "format-icons": {
-      "focus": "",
-      "active": "",
+      "focused": "",
+      "urgent": "",
       "default": "",
     },
   },
 
-  "hyprland/window": {
+  "sway/window": {
     "format": "{title}",
     "separate-outputs": true,
   },
@@ -67,6 +75,23 @@
     "interval": 5,
     "tooltip-format": "{essid} ({signalStrength}%)",
     "on-click": "nm-connection-editor",
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "format-icons": {
+      "performance": "",
+      "balanced": "",
+      "power-saver": "",
+    },
+  },
+  "backlight": {
+    "format": "󰃠 {percent}%",
+  },
+  "battery": {
+    "states": { "warning": 25, "critical": 10 },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-icons": ["", "", "", "", ""],
   },
   "tray": {
     "spacing": 10,
