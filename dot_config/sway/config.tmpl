@@ -131,11 +131,7 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 {{- end }}
 
-# Special key to take a screenshot with grim
-# Print: area -> clipboard | Shift+Print: area -> file | Ctrl+Print: schermo intero -> file
-bindsym Print exec grim -g "$(slurp)" - | wl-copy
-bindsym Shift+Print exec mkdir -p ~/Pictures && grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%F-%H%M%S).png
-bindsym Ctrl+Print exec mkdir -p ~/Pictures && grim ~/Pictures/screenshot-$(date +%F-%H%M%S).png
+
 bar {
     swaybar_command waybar
 }
@@ -145,3 +141,8 @@ exec_always ~/.config/sway/wall.sh ~/wall 3600
 
 ## outputs from nwg-displays
 include ~/.config/sway/outputs
+
+# Special key to take a screenshot with grim
+# Print: area -> clipboard | Shift+Print: area -> file | Ctrl+Print: area -> satty
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
+bindsym Ctrl+Print exec grim -g "$(slurp)" - | satty -f - --copy-command wl-copy --output-filename ~/Pictures/screenshot-%Y-%m-%d-%H%M%S.png
