@@ -29,7 +29,7 @@
   ],
 
   "sway/workspaces": {
-    "format": "{name}: {icon}",
+    "format": "{name}: <span color='#7aa2f7'>{icon}</span>",
     "format-icons": {
       "focused": "",
       "urgent": "",
@@ -43,7 +43,7 @@
   },
 
   "clock": {
-    "format": " {:%H:%M -  %d %B} ",
+    "format": "<span color='#7dcfff'></span> {:%H:%M -  %d %B} ",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "calendar": {
       "mode": "year",
@@ -51,11 +51,11 @@
       "weeks-pos": "right",
       "on-scroll": 1,
       "format": {
-        "months": "<span color='#56b6c2'><b>{}</b></span>",
-        "days": "<span color='#abb2bf'><b>{}</b></span>",
-        "weeks": "<span color='#98c379'><b>W{}</b></span>",
-        "weekdays": "<span color='#e5c07b'><b>{}</b></span>",
-        "today": "<span color='#e86671'><b><u>{}</u></b></span>",
+        "months": "<span color='#7dcfff'><b>{}</b></span>",
+        "days": "<span color='#c0caf5'><b>{}</b></span>",
+        "weeks": "<span color='#9ece6a'><b>W{}</b></span>",
+        "weekdays": "<span color='#e0af68'><b>{}</b></span>",
+        "today": "<span color='#f7768e'><b><u>{}</u></b></span>",
       },
     },
     "actions": {
@@ -67,15 +67,15 @@
     },
   },
   "network": {
-    "format-wifi": "󰤢",
-    "format-ethernet": "󰈀 ",
-    "format-disconnected": "󰤠 ",
+    "format-wifi": "<span color='#7dcfff'>󰤢</span>",
+    "format-ethernet": "<span color='#7dcfff'>󰈀</span> ",
+    "format-disconnected": "<span color='#f7768e'>󰤠</span> ",
     "interval": 5,
     "tooltip-format": "{essid} ({signalStrength}%)",
     "on-click": "nm-connection-editor",
   },
   "power-profiles-daemon": {
-    "format": "{icon}",
+    "format": "<span color='#bb9af7'>{icon}</span>",
     "format-icons": {
       "performance": "",
       "balanced": "",
@@ -83,12 +83,12 @@
     },
   },
   "backlight": {
-    "format": "󰃠 {percent}%",
+    "format": "<span color='#e0af68'>󰃠</span> {percent}%",
   },
   "battery": {
     "states": { "warning": 25, "critical": 10 },
-    "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
+    "format": "<span color='#9ece6a'>{icon}</span> {capacity}%",
+    "format-charging": "<span color='#9ece6a'>󰂄</span> {capacity}%",
     "format-icons": ["", "", "", "", ""],
   },
   "tray": {
@@ -98,26 +98,26 @@
     // "thermal-zone": 2,
     "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 80,
-    "format": "{icon} {temperatureC}°C",
+    "format": "<span color='#ff9e64'>{icon}</span> {temperatureC}°C",
     "format-icons": ["", "", ""],
   },
   "cpu": {
     "interval": 1,
     // "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
     // "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "format": "  {usage}%",
+    "format": "<span color='#7aa2f7'></span>  {usage}%",
     "on-click": "ghostty -e htop",
   },
 
   "memory": {
     "interval": 30,
-    "format": "    {percentage}%",
+    "format": "<span color='#bb9af7'></span>    {percentage}%",
     "tooltip-format": "Memory",
   },
 
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    "format-muted": "",
+    "format": "<span color='#73daca'>{icon}</span>  {volume}%",
+    "format-muted": "<span color='#f7768e'></span>",
     "format-icons": {
       "default": ["", "", " "],
     },
@@ -125,17 +125,17 @@
     "scroll-step": 5,
   },
   "disk": {
-    "format": "  / {percentage_used}%",
+    "format": "<span color='#e0af68'></span>  / {percentage_used}%",
     "path": "/",
     "interval": 30,
   },
   "disk#home": {
-    "format": "  /home {percentage_used}%",
+    "format": "<span color='#e0af68'></span>  /home {percentage_used}%",
     "path": "/home",
     "interval": 30,
   },
   "custom/power": {
-    "format": "⏻ ",
+    "format": "<span color='#f7768e'>⏻</span> ",
     "tooltip": false,
     "menu": "on-click",
     "menu-file": "~/.config/waybar/power_menu.xml",
