@@ -11,9 +11,8 @@ fi
 
 img=$( find "$1" -type f | shuf -n 1) 
 
-
 for d in $(awww query | awk '{print $2}' | sed s/://); do 
-	awww img --outputs "$d" "$img" 
+	awww img --outputs "$d" $( find "$1" -type f | shuf -n 1 ) 
 done
 
 
