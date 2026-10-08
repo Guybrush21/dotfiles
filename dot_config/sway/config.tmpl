@@ -8,7 +8,7 @@ set $right l
 set $term ghostty 
 set $fileManager thunar
 
-set $menu rofi -modes "combi,drun,run,window" -combi-modes "drun,run,window" -show combi -icon-theme 'Papirus' -show-icons -combi-hide-mode-prefix
+set $menu rofi -modes "combi,drun,run,window" -combi-modes "drun,run,window" -show combi -icon-theme 'Fluent-dark' -show-icons -combi-hide-mode-prefix -application-fallback-icon application-x-executable
 
 ### Idle configuration
 exec swayidle -w \
@@ -37,6 +37,16 @@ floating_modifier $mod normal
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
+
+# Alt+Tab: elenco di tutte le finestre in rofi.
+# Tab/Shift+Tab scorrono tenendo premuto Alt; al rilascio di Alt passa alla finestra selezionata.
+set $switcher rofi -show window -show-icons -icon-theme 'Fluent-dark' -window-format '{t}' \
+    -selected-row 1 \
+    -kb-accept-entry '!Alt-Tab,!Alt+Alt_L,Return,KP_Enter' \
+    -kb-row-down 'Alt+Tab,Down,Control+n' \
+    -kb-row-up 'Alt+ISO_Left_Tab,Up,Control+p' \
+    -kb-cancel 'Escape,Control+g'
+bindsym Mod1+Tab exec $switcher
 bindsym $mod+t exec $fileManager
 bindsym $mod+Shift+c reload 
 

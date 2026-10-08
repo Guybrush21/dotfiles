@@ -50,7 +50,7 @@
 
     ### Icone ###
     enable_recursive_icon_lookup = true
-    icon_theme = Papirus-Dark, Papirus, Adwaita
+    icon_theme = Fluent-dark, Adwaita
     icon_position = left
     min_icon_size = 32
     max_icon_size = 48
