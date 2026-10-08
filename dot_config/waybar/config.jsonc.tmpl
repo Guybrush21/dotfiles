@@ -34,7 +34,7 @@
     "format": "{name}: {icon}",
     "format-icons": {
       "focused": "<span color='#e0af68'></span>",
-      "urgent": "<span color='#1a1b26'></span>",
+      "urgent": "<span color='#f7768e'></span>",
       "default": "<span color='#e0af68'></span>",
     },
   },
@@ -45,7 +45,8 @@
   },
 
   "clock": {
-    "format": "<span color='#7dcfff'></span> {:%H:%M -  %d %B} ",
+    "format": "<span color='#7dcfff'></span> {:L%a %d %b · %H:%M}",
+    "locale": "it_IT.UTF-8",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "calendar": {
       "mode": "year",
@@ -140,7 +141,7 @@
     "interval": 30,
   },
   "custom/power": {
-    "format": "<span color='#f7768e'>⏻</span>",
+    "format": "⏻",
     "tooltip": false,
     "menu": "on-click",
     "menu-file": "~/.config/waybar/power_menu.xml",

@@ -9,6 +9,7 @@
 @define-color cyan #7dcfff;
 @define-color red #f7768e;
 @define-color grey #565f89;
+@define-color fg-dark #a9b1d6;
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
@@ -18,10 +19,10 @@
     Iosevka Nerd Font Propo,
     Fira Code Nerd Font,
     sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   /* Cifre a larghezza fissa: i moduli non cambiano larghezza al variare dei valori */
   font-feature-settings: "tnum";
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 window#waybar {
@@ -70,15 +71,15 @@ button:hover {
 }
 
 #workspaces button:first-child {
-  border-radius: 4px 0 0 4px;
+  border-radius: 6px 0 0 6px;
 }
 
 #workspaces button:last-child {
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 6px 6px 0;
 }
 
 #workspaces button:only-child {
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 #workspaces button {
@@ -98,8 +99,9 @@ button:hover {
 }
 
 #workspaces button.urgent {
-  background-color: @red;
-  color: @black;
+  background-color: @bg;
+  box-shadow: inset 0 -3px @red;
+  color: @red;
 }
 
 .module {
@@ -129,4 +131,13 @@ label:focus {
 #pulseaudio.muted {
   background-color: @bg;
   color: @grey;
+}
+
+/* Spegnimento: neutro, rosso solo al passaggio del mouse */
+#custom-power {
+  color: @fg-dark;
+}
+
+#custom-power:hover {
+  color: @red;
 }

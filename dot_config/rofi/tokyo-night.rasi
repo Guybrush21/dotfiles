@@ -16,7 +16,7 @@
 	red:      #f7768e;
 	yellow:   #e0af68;
 
-	font: "Iosevka Nerd Font Propo 18";
+	font: "Iosevka Nerd Font Propo 16";
 
 	background-color: transparent;
 	text-color:       @fg;
@@ -27,7 +27,7 @@ window {
 	width:            40%;
 	background-color: @bg;
 	border:           2px;
-	border-radius:    12px;
+	border-radius:    6px;
 	border-color:     @yellow;
 	padding:          12px;
 }
@@ -40,13 +40,15 @@ mainbox {
 inputbar {
 	spacing:          8px;
 	padding:          10px 12px;
-	border-radius:    8px;
+	border-radius:    6px;
 	background-color: @bg-alt;
-	children:         [ prompt, entry ];
+	children:         [ textbox-prompt-icon, entry ];
 }
 
-prompt {
-	text-color: @blue;
+textbox-prompt-icon {
+	expand:     false;
+	str:        "";
+	text-color: @yellow;
 }
 
 entry {
@@ -57,7 +59,7 @@ entry {
 
 message {
 	padding:          8px 12px;
-	border-radius:    8px;
+	border-radius:    6px;
 	background-color: @bg-alt;
 }
 
@@ -71,7 +73,7 @@ listview {
 element {
 	spacing:       12px;
 	padding:       10px 12px;
-	border-radius: 8px;
+	border-radius: 6px;
 	cursor:        pointer;
 }
 
@@ -92,7 +94,9 @@ element alternate.urgent {
 
 element selected.normal {
 	background-color: @sel;
-	text-color:       @blue;
+	text-color:       @fg;
+	border:           0 0 0 3px;
+	border-color:     @yellow;
 }
 
 element selected.active {
