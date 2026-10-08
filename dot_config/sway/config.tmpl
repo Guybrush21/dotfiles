@@ -152,6 +152,11 @@ bar {
     swaybar_command waybar
 }
 
+# Notifiche
+exec dunst
+bindsym $mod+n exec dunstctl close
+bindsym $mod+Shift+n exec dunstctl history-pop
+
 exec awww-daemon
 exec ~/.config/awww/wallpaper-roll.sh ~/wall 3600
 
