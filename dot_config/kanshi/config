@@ -1,0 +1,18 @@
+# Profili monitor: kanshi applica il primo profilo i cui output
+# corrispondono esattamente a quelli collegati.
+# Nomi output: swaymsg -t get_outputs -r | jq -r '.[] | "\(.make) \(.model) \(.serial)"'
+
+profile laptop {
+    output eDP-1 enable mode 1920x1200@60.003Hz position 0,0 scale 1
+}
+
+profile home {
+    output eDP-1 enable mode 1920x1200@60.003Hz position 0,0 scale 1.0 transform normal
+    output "LG Electronics 27GL850 010NTCZ8C787" enable mode 2560x1440@99.946Hz position 320,1200 scale 1.0 transform normal
+}
+
+# profile office {
+#     output eDP-1 disable
+#     output "<marca modello seriale schermo sinistro>" enable position 0,0
+#     output "<marca modello seriale schermo destro>" enable position <larghezza sinistro>,0
+# }
