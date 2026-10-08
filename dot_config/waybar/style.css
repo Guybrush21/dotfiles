@@ -141,3 +141,19 @@ label:focus {
 #custom-power:hover {
   color: @red;
 }
+
+/* Gruppi a destra: un solo riquadro per gruppo, i moduli interni senza sfondo */
+#controls,
+#monitors,
+#essentials {
+  margin: 0 4px;
+  padding: 0 4px;
+  background-color: @bg;
+}
+
+#controls .module,
+#monitors .module,
+#essentials .module {
+  margin: 0;
+  background-color: transparent;
+}
