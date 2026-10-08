@@ -152,6 +152,10 @@ bar {
     swaybar_command waybar
 }
 
+
+# Tasti morti (AltGr+` e -> è) in Ghostty/GTK4 senza ibus/fcitx
+exec gsettings set org.gnome.desktop.interface gtk-im-module simple
+
 # Notifiche
 exec dunst
 bindsym $mod+n exec dunstctl close
@@ -162,9 +166,9 @@ exec ~/.config/awww/wallpaper-roll.sh ~/wall 3600
 
 bindsym $mod+Shift+a exec ~/.config/awww/wallpaper-random.sh ~/wall
 
-## outputs from nwg-displays
 include ~/.config/sway/outputs
 include ~/.config/sway/swayfx
+include /etc/sway/config.d/*
 
 # Special key to take a screenshot with grim
 # Print: area -> clipboard | Shift+Print: area -> file | Ctrl+Print: area -> satty
