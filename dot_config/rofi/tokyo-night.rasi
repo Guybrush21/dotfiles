@@ -1,0 +1,116 @@
+/**
+ * Tokyo Night — stessa palette di waybar (style.css)
+ * Lo sfondo della finestra è semitrasparente: swayfx applica il blur
+ * tramite `layer_effects "rofi" blur enable`.
+ */
+
+* {
+	bg:       #1a1b26e0; /* ~88% opaco */
+	bg-alt:   #24283bcc;
+	sel:      #292e42;
+	fg:       #c0caf5;
+	grey:     #565f89;
+	blue:     #7aa2f7;
+	purple:   #bb9af7;
+	cyan:     #7dcfff;
+	red:      #f7768e;
+	yellow:   #e0af68;
+
+	font: "Iosevka Nerd Font Propo 18";
+
+	background-color: transparent;
+	text-color:       @fg;
+	transparency:     "real";
+}
+
+window {
+	width:            40%;
+	background-color: @bg;
+	border:           2px;
+	border-radius:    12px;
+	border-color:     @yellow;
+	padding:          12px;
+}
+
+mainbox {
+	spacing: 12px;
+	padding: 12px;
+}
+
+inputbar {
+	spacing:          8px;
+	padding:          10px 12px;
+	border-radius:    8px;
+	background-color: @bg-alt;
+	children:         [ prompt, entry ];
+}
+
+prompt {
+	text-color: @blue;
+}
+
+entry {
+	placeholder:       "Cerca…";
+	placeholder-color: @grey;
+	cursor:            text;
+}
+
+message {
+	padding:          8px 12px;
+	border-radius:    8px;
+	background-color: @bg-alt;
+}
+
+listview {
+	lines:        5;
+	fixed-height: false;
+	scrollbar:    false;
+	spacing:      4px;
+}
+
+element {
+	spacing:       12px;
+	padding:       10px 12px;
+	border-radius: 8px;
+	cursor:        pointer;
+}
+
+element normal.normal,
+element alternate.normal {
+	text-color: @fg;
+}
+
+element normal.active,
+element alternate.active {
+	text-color: @cyan;
+}
+
+element normal.urgent,
+element alternate.urgent {
+	text-color: @red;
+}
+
+element selected.normal {
+	background-color: @sel;
+	text-color:       @blue;
+}
+
+element selected.active {
+	background-color: @sel;
+	text-color:       @cyan;
+}
+
+element selected.urgent {
+	background-color: @red;
+	text-color:       #1a1b26;
+}
+
+element-icon {
+	size:       1.2em;
+	text-color: inherit;
+}
+
+element-text {
+	text-color:     inherit;
+	vertical-align: 0.5;
+}

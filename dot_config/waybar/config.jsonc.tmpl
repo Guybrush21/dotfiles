@@ -1,21 +1,20 @@
 {
   "font": "sans:size=10",
   "layer": "top",
-  "position": "top",
-  "margin-top": 20,
-  "margin-left": 20,
-  "margin-right": 20,
-  "spacing": 3,
+  "position": "rop",
+  "margin-top": 12,
+  "margin-left": 8,
+  "margin-right": 8,
+  "spacing": 0,
   "reload_style_on_change": true,
 
-{{- $laptop := glob "/sys/class/power_supply/BAT*" }}
   "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
 
   "modules-center": ["clock"],
 
   "modules-right": [
     "tray",
-{{- if $laptop }}
+{{- if .laptop }}
     "network",
     "power-profiles-daemon",
     "backlight",
@@ -32,11 +31,11 @@
   ],
 
   "sway/workspaces": {
-    "format": "{name}: <span color='#7aa2f7'>{icon}</span>",
+    "format": "{name}: {icon}",
     "format-icons": {
-      "focused": "",
-      "urgent": "",
-      "default": "",
+      "focused": "<span color='#e0af68'></span>",
+      "urgent": "<span color='#1a1b26'></span>",
+      "default": "<span color='#e0af68'></span>",
     },
   },
 
@@ -111,7 +110,7 @@
     "interval": 1,
     // "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
     // "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "format": "<span color='#7aa2f7'></span> {usage}%",
+    "format": "<span color='#7aa2f7'></span> {usage: >2}%",
     "on-click": "ghostty -e htop",
   },
 

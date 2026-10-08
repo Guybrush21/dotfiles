@@ -103,11 +103,21 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-# smart_gaps on
-gaps inner 20
+smart_gaps off
+gaps inner 12
+gaps outer 0
 
-default_border pixel 4
-default_floating_border pixel 4
+default_border pixel 2
+default_floating_border pixel 2
+
+# Colori bordi (Tokyo Night)
+# class                 border  bg      text    indicator child_border
+client.focused          #e0af68 #e0af68 #1a1b26 #ff9e64   #e0af68
+client.focused_inactive #3b4261 #3b4261 #c0caf5 #3b4261   #3b4261
+client.unfocused        #292e42 #1a1b26 #565f89 #292e42   #292e42
+client.urgent           #f7768e #f7768e #1a1b26 #f7768e   #f7768e
+client.placeholder      #1a1b26 #1a1b26 #c0caf5 #1a1b26   #1a1b26
+client.background       #1a1b26
 
 # Resizing containers:
 mode "resize" {

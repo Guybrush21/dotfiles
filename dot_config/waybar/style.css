@@ -19,7 +19,9 @@
     Fira Code Nerd Font,
     sans-serif;
   font-size: 18px;
-  border-radius: 0;
+  /* Cifre a larghezza fissa: i moduli non cambiano larghezza al variare dei valori */
+  font-feature-settings: "tnum";
+  border-radius: 4px;
 }
 
 window#waybar {
@@ -54,7 +56,7 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
   background: inherit;
-  box-shadow: inset 0 -3px @blue;
+  box-shadow: inset 0 -3px @yellow;
 }
 
 /* you can set a style on hover for any module like this */
@@ -62,11 +64,21 @@ button:hover {
   background-color: #292e42;
 }
 
-#pulseaudio {
-  margin-right: 8px;
-}
+/* Niente padding sul contenitore: i pulsanti (e la sottolineatura) arrivano ai bordi */
 #workspaces {
-  margin-left: 8px;
+  padding: 0;
+}
+
+#workspaces button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+#workspaces button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+#workspaces button:only-child {
+  border-radius: 4px;
 }
 
 #workspaces button {
@@ -81,16 +93,17 @@ button:hover {
 
 #workspaces button.focused,
 #workspaces button.active {
-  box-shadow: inset 0 -3px @blue;
+  box-shadow: inset 0 -3px @yellow;
   color: @yellow;
 }
 
 #workspaces button.urgent {
   background-color: @red;
+  color: @black;
 }
 
 .module {
-  margin: 6px 4px;
+  margin: 0 4px;
   /* margin-right: 8px; */
   /* margin-left: 8px; */
   padding: 2px 8px;
