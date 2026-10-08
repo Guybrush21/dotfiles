@@ -1,0 +1,6 @@
+{{- if eq .chezmoi.hostname "IKN8" -}}
+{{- template "kanshi/ikn8" . -}}
+{{- else if eq .chezmoi.hostname "elsa" -}}
+{{- template "kanshi/elsa" . -}}
+{{- end -}}
+

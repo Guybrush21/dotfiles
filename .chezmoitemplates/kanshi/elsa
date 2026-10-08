@@ -1,0 +1,5 @@
+profile elsa {
+    output "LG Electronics 27GL850 010NTCZ8C787" mode 2560x1440@144.000000Hz position 1920,0 scale 1.000000 transform normal
+    output "Ancor Communications Inc ASUS VN248 DCLMTF041914" mode 1920x1080@60.000000Hz position 4480,0 scale 1.000000 transform normal
+    output "Ancor Communications Inc ASUS VN248 DCLMTF041903" mode 1920x1080@60.000000Hz position 0,0 scale 1.000000 transform normal
+}
