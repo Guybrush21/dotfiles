@@ -1,7 +1,7 @@
 {
   "font": "sans:size=10",
   "layer": "top",
-  "position": "rop",
+  "position": "top",
   "margin-top": 12,
   "margin-left": 8,
   "margin-right": 8,
@@ -12,29 +12,52 @@
 
   "modules-center": ["clock"],
 
-  "modules-right": [
-    "tray",
+  "modules-right": ["group/controls", "group/monitors", "group/essentials"],
+
+  // Controlli cliccabili
+  "group/controls": {
+    "orientation": "inherit",
+    "modules": [
+      "tray",
 {{- if .laptop }}
-    "network",
-    "power-profiles-daemon",
-    "backlight",
-    "battery",
-{{- else }}
-    "disk#home",
+      "network",
+      "power-profiles-daemon",
+      "backlight",
 {{- end }}
-    "disk",
-    "temperature",
-    "cpu",
-    "memory",
-    "pulseaudio",
-    "custom/power",
-  ],
+    ],
+  },
+
+  // Monitor di sistema
+  "group/monitors": {
+    "orientation": "inherit",
+    "modules": [
+{{- if not .laptop }}
+      "disk#home",
+{{- end }}
+      "disk",
+      "temperature",
+      "cpu",
+      "memory",
+    ],
+  },
+
+  // I più usati
+  "group/essentials": {
+    "orientation": "inherit",
+    "modules": [
+{{- if .laptop }}
+      "battery",
+{{- end }}
+      "pulseaudio",
+      "custom/power",
+    ],
+  },
 
   "sway/workspaces": {
-    "format": "{name}: {icon}",
+    "format": "{name} {icon}",
     "format-icons": {
       "focused": "<span color='#e0af68'></span>",
-      "urgent": "<span color='#f7768e'></span>",
+      "urgent": "<span color='#f7768e'></span>",
       "default": "<span color='#e0af68'></span>",
     },
   },
@@ -105,7 +128,7 @@
     "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 80,
     "format": "<span color='#ff9e64'>{icon}</span> {temperatureC}°C",
-    "format-icons": ["", "", ""],
+    "format-icons": ["", "", "", "", ""],
   },
   "cpu": {
     "interval": 1,
