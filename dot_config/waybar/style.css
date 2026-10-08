@@ -14,16 +14,17 @@
   /* `otf-font-awesome` is required to be installed for icons */
   font-family:
     FontAwesome,
-    Roboto,
+    Cantarell,
+    Iosevka Nerd Font Propo,
     Fira Code Nerd Font,
     sans-serif;
   font-size: 18px;
-  border-radius: 6;
+  border-radius: 0;
 }
 
 window#waybar {
   background-color: rgba(0, 0, 0, 0);
-  padding: 1rem;
+  padding: 5px 20px;
   color: @fg;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -32,15 +33,6 @@ window#waybar {
 window#waybar.hidden {
   opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
 window#waybar.termite {
   background-color: #3f3f3f;
