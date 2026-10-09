@@ -7,10 +7,10 @@
     # 12px dal bordo destro e sotto la waybar (gaps inner): stessa altezza del bordo alto delle finestre.
     follow = keyboard
     origin = top-right
-    offset = (12, 12)
+    offset = (12, 24)
     layer = overlay
 
-    width = (300, 420)
+    width = (400, 520)
     height = (0, 300)
     notification_limit = 5
     indicate_hidden = yes
@@ -73,11 +73,11 @@
 [urgency_low]
     frame_color = "#292e42"
     foreground = "#a9b1d6"
-    timeout = 5
+    timeout = 10
 
 [urgency_normal]
-    frame_color = "#3b4261"
-    timeout = 8
+    frame_color = "#e0af68"
+    timeout = 10
 
 [urgency_critical]
     frame_color = "#f7768e"
