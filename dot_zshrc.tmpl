@@ -104,15 +104,6 @@ if command -v nvm >/dev/null 2>&1; then
   add-zsh-hook chpwd load-nvmrc
 fi
 
-
-# pnpm
-export PNPM_HOME="/home/nic/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 alias s='kitten ssh' 
 alias wb='cd /home/nic/code/welbee-monorepo '
 
@@ -120,7 +111,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 alias ga='git add'
-alias gcm='git commit --all --message'
+alias gcm='git commit --message'
 alias gcam='git commit --all --message'
 alias gp='git push'
 alias gl='git pull'
@@ -128,15 +119,14 @@ alias gsw='git switch'
 alias gswc='git switch --create'
 alias gst='git status'
 
-alias pin='pnpm install'
-alias pd='pnpm run dev'
-alias pb='pnpm run build'
-alias p='pnpm'
-
 alias ls='ls -F --color'   #long list,show almost all,show type,human readable
 alias ll='ls -l --color'      #long list
 
 alias du='du -h -d 1'  
+
+{{- if eq .chezmoi.hostname "IKN8" }}
+alias docker='podman'
+{{ end }}
 
 source <(fzf --zsh)
 
