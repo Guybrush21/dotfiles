@@ -11,8 +11,8 @@ profile home {
     output "LG Electronics 27GL850 010NTCZ8C787" enable mode 2560x1440@99.946Hz position 320,1200 scale 1.0 transform normal
 }
 
-# profile office {
-#     output eDP-1 disable
-#     output "<marca modello seriale schermo sinistro>" enable position 0,0
-#     output "<marca modello seriale schermo destro>" enable position <larghezza sinistro>,0
-# }
+profile office {
+    output "ASUSTek COMPUTER INC PA248QV RALMQS150268" mode 1920x1200@59.950001Hz position 0,0 scale 1.000000 transform normal
+    output "ASUSTek COMPUTER INC PA248QV RALMQS150679" mode 1920x1200@59.950001Hz position 1920,0 scale 1.000000 transform normal
+    output "Samsung Display Corp. 0x41A0 null" disable
+}
