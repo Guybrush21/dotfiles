@@ -1,13 +1,13 @@
 shadows enable
 shadows_on_csd disable
-shadow_blur_radius 10
-shadow_offset 0 4
+shadow_blur_radius4
+shadow_offset 6 6
 shadow_color #00000066
 shadow_inactive_color #00000033
 
 # Leggera attenuazione delle finestre senza focus (opzionale)
-default_dim_inactive 0.1
-dim_inactive_colors.unfocused #000000FF
+default_dim_inactive 0.2
+dim_inactive_colors.unfocused #000000
 # Effetti su waybar e rofi
 layer_effects "waybar" blur disable; shadows disable 
 layer_effects "rofi" blur enable; corner_radius 6; shadows enable
@@ -20,3 +20,6 @@ blur_passes 2
 blur_radius 1
 blur_noise 0.02
 blur_saturation 2
+
+bindsym $mod+Shift+t [all] opacity 0.9
+bindsym $mod+Ctrl+Shift+t [all] opacity 1
