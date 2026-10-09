@@ -172,15 +172,14 @@ bindsym $mod+n exec dunstctl close
 bindsym $mod+Shift+n exec dunstctl history-pop
 
 exec awww-daemon
-exec ~/.config/awww/wallpaper-roll.sh ~/wall 3600
+exec ~/.config/awww/wallpaper-roll.sh ~/wall 300 
 
 bindsym $mod+Shift+a exec ~/.config/awww/wallpaper-random.sh ~/wall
 
-{{- if .laptop }}
-# Monitor: profili gestiti da kanshi (~/.config/kanshi/config)
 exec kanshi
 exec_always kanshictl reload
-# Lid chiuso -> spegne lo schermo interno, riaperto -> lo riaccende
+
+{{- if .laptop }}
 bindswitch --reload --locked lid:on output eDP-1 disable
 bindswitch --reload --locked lid:off output eDP-1 enable
 {{- end }}
