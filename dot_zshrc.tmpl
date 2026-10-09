@@ -133,10 +133,11 @@ source <(fzf --zsh)
 # opencode
 export PATH=~/.opencode/bin:$PATH
 export PATH="$PATH:/home/npellizer/.dotnet/tools"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/code/radio:$PATH"
 
 eval "$(starship init zsh)"
 
-export PATH="$HOME/.local/bin:$PATH"
 {{- if eq .chezmoi.hostname "elaine" }}
 [ -f "$HOME/.config/zsh/homelab.zsh" ] && source "$HOME/.config/zsh/homelab.zsh"
 {{ end }}

@@ -1,6 +1,6 @@
 shadows enable
 shadows_on_csd disable
-shadow_blur_radius4
+shadow_blur_radius 4
 shadow_offset 6 6
 shadow_color #00000066
 shadow_inactive_color #00000033
