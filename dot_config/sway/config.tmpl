@@ -197,3 +197,6 @@ include /etc/sway/config.d/*
 # Print: area -> clipboard | Shift+Print: area -> file | Ctrl+Print: area -> satty
 bindsym Print exec grim -g "$(slurp)" - | wl-copy
 bindsym Ctrl+Print exec grim -g "$(slurp)" - | satty -f - --copy-command wl-copy --output-filename ~/Pictures/screenshot-%Y-%m-%d-%H%M%S.png
+
+
+for_window [app_id="(?i)calculator"] floating enable

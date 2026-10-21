@@ -1,2 +1,7 @@
 export EDITOR=nvim
 export PAGER=less
+typeset -U path PATH
+export PATH="$HOME/code/radio:$PATH"
+export PATH=~/.opencode/bin:$PATH
+export PATH="$PATH:/home/npellizer/.dotnet/tools"
+export PATH="$HOME/.local/bin:$PATH"
