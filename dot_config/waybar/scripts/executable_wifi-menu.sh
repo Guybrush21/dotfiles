@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 nmcli device wifi rescan 2>/dev/null
 
-# Lista reti: "SSID<TAB>segnale<TAB>sicurezza<TAB>in uso", senza SSID vuoti né duplicati
+# Network list: "SSID<TAB>signal<TAB>security<TAB>in use", without empty or duplicate SSIDs
 networks=$(nmcli -t -f IN-USE,SSID,SIGNAL,SECURITY device wifi list --rescan no |
   awk -F: '$2 != "" && !seen[$2]++ {
     sec = ($4 == "" || $4 == "--") ? "" : "󰌾"

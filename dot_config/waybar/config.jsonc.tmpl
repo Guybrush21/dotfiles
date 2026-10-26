@@ -8,13 +8,19 @@
   "spacing": 0,
   "reload_style_on_change": true,
 
-  "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+  // Workspaces via the Wayland protocol (sway and Hyprland); of the
+  // compositor-specific modules waybar only enables the running one's
+  "modules-left": [
+    "ext/workspaces",
+    "sway/mode", "hyprland/submap",
+    "sway/window", "hyprland/window",
+  ],
 
   "modules-center": ["clock"],
 
   "modules-right": ["group/controls", "group/monitors", "group/essentials"],
 
-  // Controlli cliccabili
+  // Clickable controls
   "group/controls": {
     "orientation": "inherit",
     "modules": [
@@ -27,7 +33,7 @@
     ],
   },
 
-  // Monitor di sistema
+  // System monitors
   "group/monitors": {
     "orientation": "inherit",
     "modules": [
@@ -41,7 +47,7 @@
     ],
   },
 
-  // I più usati
+  // Most used
   "group/essentials": {
     "orientation": "inherit",
     "modules": [
@@ -53,11 +59,14 @@
     ],
   },
 
-  "sway/workspaces": {
+  "ext/workspaces": {
     "format": "{name} {icon}",
+    "on-click": "activate",
+    "smooth-scrolling-threshold": 3,
+    "on-scroll-down": "[ -n \"$SWAYSOCK\" ] && swaymsg -q workspace next_on_output || hyprctl dispatch 'hl.dsp.focus({ workspace = \"m+1\" })'",
+    "on-scroll-up": "[ -n \"$SWAYSOCK\" ] && swaymsg -q workspace prev_on_output || hyprctl dispatch 'hl.dsp.focus({ workspace = \"m-1\" })'",
     "format-icons": {
-      "focused": "<span color='#e0af68'></span>",
-      "urgent": "<span color='#f7768e'></span>",
+      "active": "<span color='#e0af68'></span>",
       "default": "<span color='#e0af68'></span>",
     },
   },
@@ -67,7 +76,13 @@
     "separate-outputs": true,
   },
 
+  "hyprland/window": {
+    "format": "{title}",
+    "separate-outputs": true,
+  },
+
   "clock": {
+    "smooth-scrolling-threshold": 3,
     "format": "<span color='#7dcfff'></span> {:L%a %d %b · %H:%M}",
     "locale": "it_IT.UTF-8",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
@@ -110,6 +125,7 @@
     },
   },
   "backlight": {
+    "smooth-scrolling-threshold": 3,
     "format": "<span color='#e0af68'>󰃠</span> {percent}%",
     "tooltip-format": "Luminosità {percent}%",
     "scroll-step": 5,
@@ -145,6 +161,7 @@
   },
 
   "pulseaudio": {
+    "smooth-scrolling-threshold": 3,
     "format": "<span color='#73daca'>{icon}</span>  {volume}%",
     "format-muted": "<span color='#f7768e'></span>",
     "format-icons": {
@@ -169,6 +186,9 @@
     "menu": "on-click",
     "menu-file": "~/.config/waybar/power_menu.xml",
     "menu-actions": {
+      // swayidle starts the right locker (swaylock in sway, hyprlock in Hyprland)
+      "lock": "loginctl lock-session",
+      "logout": "[ -n \"$SWAYSOCK\" ] && swaymsg exit || hyprctl dispatch 'hl.dsp.exit()'",
       "shutdown": "shutdown",
       "reboot": "reboot",
       "suspend": "systemctl suspend",

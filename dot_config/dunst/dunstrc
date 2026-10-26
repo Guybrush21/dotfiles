@@ -1,10 +1,10 @@
-# Tokyo Night — stessa palette di waybar, rofi e bordi di sway.
-# Vedi dunst(5) per tutte le opzioni.
+# Tokyo Night — same palette as waybar, rofi and sway borders.
+# See dunst(5) for all options.
 
 [global]
-    ### Posizione ###
-    # Segue l'output con il focus; allineato alle finestre:
-    # 12px dal bordo destro e sotto la waybar (gaps inner): stessa altezza del bordo alto delle finestre.
+    ### Position ###
+    # Follows the focused output; aligned with the windows:
+    # 12px from the right edge and below waybar (gaps inner): same height as the windows' top edge.
     follow = keyboard
     origin = top-right
     offset = (12, 24)
@@ -15,7 +15,7 @@
     notification_limit = 5
     indicate_hidden = yes
 
-    ### Aspetto ###
+    ### Appearance ###
     font = Iosevka Nerd Font Propo 12
     background = "#1a1b26e0"
     foreground = "#c0caf5"
@@ -27,7 +27,7 @@
     horizontal_padding = 14
     text_icon_padding = 14
 
-    ### Barra di avanzamento ###
+    ### Progress bar ###
     progress_bar = true
     progress_bar_height = 8
     progress_bar_frame_width = 0
@@ -36,7 +36,7 @@
     progress_bar_corner_radius = 4
     highlight = "#e0af68"
 
-    ### Testo ###
+    ### Text ###
     markup = full
     format = "<b>%s</b>\n%b"
     alignment = left
@@ -48,7 +48,7 @@
     hide_duplicate_count = false
     show_indicators = no
 
-    ### Icone ###
+    ### Icons ###
     enable_recursive_icon_lookup = true
     icon_theme = Fluent-dark, Adwaita
     icon_position = left
@@ -56,11 +56,11 @@
     max_icon_size = 48
     icon_corner_radius = 4
 
-    ### Cronologia ###
+    ### History ###
     sticky_history = yes
     history_length = 20
 
-    ### Varie ###
+    ### Misc ###
     dmenu = /usr/bin/rofi -dmenu -p dunst
     browser = /usr/bin/xdg-open
     always_run_script = true
@@ -73,11 +73,11 @@
 [urgency_low]
     frame_color = "#292e42"
     foreground = "#a9b1d6"
-    timeout = 10
+    timeout = 15
 
 [urgency_normal]
     frame_color = "#e0af68"
-    timeout = 10
+    timeout = 15
 
 [urgency_critical]
     frame_color = "#f7768e"

@@ -5,10 +5,10 @@ shadow_offset 6 6
 shadow_color #00000066
 shadow_inactive_color #00000000
 
-# Leggera attenuazione delle finestre senza focus (opzionale)
+# Slight dimming of unfocused windows (optional)
 default_dim_inactive 0.05
 dim_inactive_colors.unfocused #000000ff
-# Effetti su waybar e rofi
+# Effects on waybar and rofi
 layer_effects "waybar" blur disable; shadows disable 
 layer_effects "rofi" blur enable; corner_radius 6; shadows enable
 

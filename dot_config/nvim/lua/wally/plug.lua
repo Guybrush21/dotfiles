@@ -59,7 +59,6 @@ return {
 		end,
 	},
 
-	{ "sindrets/diffview.nvim" },
 	{ "j-hui/fidget.nvim", opts = {} },
 	{
 		"seblyng/roslyn.nvim",

@@ -13,7 +13,8 @@ set $menu rofi -modes "combi,drun,run,window" -combi-modes "drun,run,window" -sh
 ### Idle configuration
 exec swayidle -w \
   timeout 300 'swaylock -f' \
-  timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep 'swaylock -f'
+  timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep 'swaylock -f' \
+  lock 'swaylock -f'
 
 ### Input configuration
 
@@ -38,8 +39,8 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 
-# Alt+Tab: elenco di tutte le finestre in rofi.
-# Tab/Shift+Tab scorrono tenendo premuto Alt; al rilascio di Alt passa alla finestra selezionata.
+# Alt+Tab: list of all windows in rofi.
+# Tab/Shift+Tab cycle while Alt is held; releasing Alt switches to the selected window.
 set $switcher rofi -show window -show-icons -icon-theme 'Fluent-dark' -window-format '{t}' \
     -selected-row 1 \
     -kb-accept-entry '!Alt-Tab,!Alt+Alt_L,Return,KP_Enter' \
@@ -126,7 +127,7 @@ gaps outer 0
 default_border pixel 2
 default_floating_border pixel 2
 
-# Colori bordi (Tokyo Night)
+# Border colours (Tokyo Night)
 # class                 border  bg      text    indicator child_border
 client.focused          #e0af68 #e0af68 #1a1b26 #ff9e64   #e0af68
 client.focused_inactive #3b4261 #3b4261 #c0caf5 #3b4261   #3b4261
@@ -169,10 +170,10 @@ bar {
 }
 
 
-# Tasti morti (AltGr+` e -> è) in Ghostty/GTK4 senza ibus/fcitx
+# Dead keys (AltGr+` e -> è) in Ghostty/GTK4 without ibus/fcitx
 exec gsettings set org.gnome.desktop.interface gtk-im-module simple
 
-# Notifiche
+# Notifications
 exec dunst
 bindsym $mod+n exec dunstctl close
 bindsym $mod+Shift+n exec dunstctl history-pop
