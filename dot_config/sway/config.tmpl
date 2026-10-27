@@ -169,6 +169,8 @@ bar {
     swaybar_command waybar
 }
 
+exec udiskie
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Dead keys (AltGr+` e -> è) in Ghostty/GTK4 without ibus/fcitx
 exec gsettings set org.gnome.desktop.interface gtk-im-module simple
