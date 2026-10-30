@@ -1,40 +1,40 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		error("Error cloning lazy.nvim:\n" .. out)
-	end
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  if vim.v.shell_error ~= 0 then
+    error('Error cloning lazy.nvim:\n' .. out)
+  end
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-	{
-		defaults = { lazy = true },
-		"folke/lazydev.nvim",
-		ft = "lua",
-		opts = {
-			library = {
-				-- Load luvit types when the `vim.uv` word is found
-				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-			},
-		},
-	},
-	require("wally.plugins.blink"),
-	require("wally.plugins.chezmoi"),
-	require("wally.plugins.conform"),
-	require("wally.plugins.copilot"),
-	require("wally.plugins.diffview"),
-	require("wally.plugins.debug"),
-	require("wally.plugins.gitsigns"),
-	require("wally.plugins.harpoon"),
-	require("wally.plugins.lspconfig"),
-	require("wally.plugins.mason"),
-	require("wally.plugins.neotest"),
-	require("wally.plugins.neo-tree"),
-	require("wally.plugins.telescope"),
-	require("wally.plugins.trouble"),
-	require("wally.plugins.which-key"),
-	{ import = "wally.plug" },
-	{ import = "wally.themes" },
-})
+require('lazy').setup {
+  {
+    defaults = { lazy = true },
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+      },
+    },
+  },
+  require 'wally.plugins.blink',
+  require 'wally.plugins.chezmoi',
+  require 'wally.plugins.conform',
+  require 'wally.plugins.copilot',
+  require 'wally.plugins.diffview',
+  require 'wally.plugins.debug',
+  require 'wally.plugins.gitsigns',
+  require 'wally.plugins.harpoon',
+  require 'wally.plugins.lspconfig',
+  require 'wally.plugins.mason',
+  require 'wally.plugins.neotest',
+  require 'wally.plugins.neo-tree',
+  require 'wally.plugins.telescope',
+  require 'wally.plugins.trouble',
+  require 'wally.plugins.which-key',
+  { import = 'wally.plug' },
+  { import = 'wally.themes' },
+}
