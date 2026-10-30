@@ -30,11 +30,12 @@ hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+
 {{- if not .laptop }}
 
--- nvidia bullshit
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+
 {{- end }}
 
 ---- AUTOSTART ----
@@ -76,8 +77,6 @@ end)
 
 hl.config({
     general = {
-        -- sway's gaps inner 12 / outer 0: in Hyprland gaps_in is per side
-        -- and monitor edges only get gaps_out
         gaps_in  = 6,
         gaps_out = 12,
 
@@ -264,7 +263,7 @@ hl.bind(m("SHIFT + a"), hl.dsp.exec_cmd("~/.config/awww/wallpaper-random.sh ~/wa
 hl.bind("Print", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy]]))
 hl.bind("CTRL + Print", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | satty -f - --copy-command wl-copy --output-filename ~/Pictures/screenshot-%Y-%m-%d-%H%M%S.png]]))
 
--- Transparency on all windows: on / off
+-- Transparency on all windows: on  off
 hl.bind(m("SHIFT + t"), function()
     local opacity = hl.get_config("decoration.active_opacity") < 1 and 1.0 or 0.9
     hl.config({ decoration = { active_opacity = opacity, inactive_opacity = opacity } })
@@ -273,6 +272,18 @@ end)
 -- Animations: on / off
 hl.bind(m("SHIFT + m"), function()
     hl.config({ animations = { enabled = not hl.get_config("animations.enabled") } })
+end)
+
+-- Border on the focused window only: off / back to the global setting.
+-- State lives here, so after a reload the first press may be a no-op.
+local borderless = {}
+hl.bind(m("CTRL + b"), function()
+    local win = hl.get_active_window()
+    if not win then
+        return
+    end
+    borderless[win.address] = not borderless[win.address] or nil
+    hl.dispatch(hl.dsp.window.set_prop({ prop = "border_size", value = borderless[win.address] and "0" or "unset" }))
 end)
 
 ---- WINDOW RULES ----
