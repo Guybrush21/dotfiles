@@ -31,7 +31,7 @@ require('lazy').setup {
   require 'wally.plugins.lspconfig',
   require 'wally.plugins.mason',
   require 'wally.plugins.neotest',
-  require 'wally.plugins.neo-tree',
+  require 'wally.plugins.snacks',
   require 'wally.plugins.telescope',
   require 'wally.plugins.trouble',
   require 'wally.plugins.which-key',

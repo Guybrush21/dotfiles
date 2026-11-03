@@ -25,8 +25,6 @@ map('n', '<C-u>', '<C-u>zz')
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 
-map('x', '<leader>p', [["_dP]])
-
 -- next greatest remap ever : asbjornHaland
 map({ 'n', 'v' }, '<leader>y', [["+y]])
 map('n', '<leader>Y', [["+Y]])

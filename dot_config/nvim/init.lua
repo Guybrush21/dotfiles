@@ -14,7 +14,6 @@ else
   })
 
   require 'wally.plugins.lazy'
-  require 'wally.term'
 
   vim.cmd 'colorscheme tokyonight'
 
