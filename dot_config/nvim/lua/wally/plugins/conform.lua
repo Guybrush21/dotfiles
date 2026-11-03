@@ -20,6 +20,7 @@ return {
       json = { 'prettierd' },
       jsonc = { 'prettierd' },
       vue = { 'prettierd' },
+      svelte = { 'prettierd' },
       sql = { 'prettierd', 'sqlfmt' },
       cs = { 'csharpier' },
       markdown = { 'prettierd' },

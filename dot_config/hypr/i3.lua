@@ -19,6 +19,8 @@ hl.config({
     },
     plugin = {
         hy3 = {
+            -- New windows alternate horizontal/vertical splits by window shape
+            autotile = { enable = true },
             -- Tabs coloured like sway's client.* (Tokyo Night)
             tabs = {
                 height      = 22,
