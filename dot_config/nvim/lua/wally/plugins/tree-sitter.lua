@@ -15,6 +15,7 @@ return {
       'svelte',
       'typescript',
       'tsx',
+      'yaml',
     }
   end,
 }
