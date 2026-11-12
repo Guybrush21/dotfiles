@@ -22,9 +22,22 @@ end
 
 ---- MONITOR ----
 
--- kanshi handles positions and modes, as in sway: this is only the
--- fallback rule for outputs no profile covers.
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
+{{- if .laptop }}
+-- kanshi handles positions and modes, as in sway: the rule above is only the
+-- fallback for outputs no profile covers.
+{{- else }}
+
+-- Desktop: always the same three outputs, no kanshi (sway still uses kanshi/elsa)
+hl.monitor({ output = "desc:LG Electronics 27GL850 010NTCZ8C787", mode = "2560x1440@144", position = "1920x0", scale = 1 })
+local sideMonitors = {
+    { output = "desc:Ancor Communications Inc ASUS VN248 DCLMTF041903", disabled = false, mode = "1920x1080@60", position = "0x0", scale = 1 },
+    { output = "desc:Ancor Communications Inc ASUS VN248 DCLMTF041914", disabled = false, mode = "1920x1080@60", position = "4480x0", scale = 1 },
+}
+for _, rule in ipairs(sideMonitors) do
+    hl.monitor(rule)
+end
+{{- end }}
 
 ---- ENV ----
 
@@ -55,7 +68,10 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("awww-daemon")
     hl.exec_cmd("~/.config/awww/wallpaper-roll.sh ~/wall 3600")
 
+{{- if .laptop }}
+
     hl.exec_cmd("kanshi")
+{{- end }}
 
     -- Idle: sway's timings, locking with hyprlock (~/.config/hypr/hyprlock.conf).
     -- Goes through logind because hyprlock stays in the foreground until unlocked:
@@ -66,12 +82,14 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("steam -silent")
 {{- end }}
 end)
+{{- if .laptop }}
 
 -- Like exec_always kanshictl reload: a reload reapplies Hyprland's monitor
 -- rules, kanshi puts the right profile back.
 hl.on("config.reloaded", function()
     hl.exec_cmd("kanshictl reload")
 end)
+{{- end }}
 
 ---- LOOK AND FEEL ----
 
@@ -250,7 +268,14 @@ hl.bind("switch:off:Lid Switch", function()
 end, { locked = true })
 {{- else }}
 
-hl.bind(m("SHIFT + p"), hl.dsp.exec_cmd("~/.config/hypr/toggle-monitors.sh"))
+-- Only the main display <-> all three. After a reload all three are back on.
+local sidesOff = false
+hl.bind(m("p"), function()
+    sidesOff = not sidesOff
+    for _, rule in ipairs(sideMonitors) do
+        hl.monitor(sidesOff and { output = rule.output, disabled = true } or rule)
+    end
+end)
 {{- end }}
 
 -- Notifications
