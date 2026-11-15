@@ -1,0 +1,8 @@
+{{- if eq .chezmoi.os "darwin" }}
+.config/hypr
+.config/hypr/**
+.config/sway
+.config/sway/**
+.config/waybar
+.config/waybar/**
+{{- end }}
