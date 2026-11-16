@@ -5,3 +5,7 @@ export PATH="$HOME/code/radio:$PATH"
 export PATH=~/.opencode/bin:$PATH
 export PATH="$PATH:/home/npellizer/.dotnet/tools"
 export PATH="$HOME/.local/bin:$PATH"
+
+{{- if eq .chezmoi.hostname "IKN8" }}
+export PATH="$PATH:/opt/mssql-tools18/bin"
+{{ end }}
