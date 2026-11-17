@@ -1,8 +1,16 @@
 {{- if eq .chezmoi.os "darwin" }}
+.config/aww
+.config/aww/**
 .config/hypr
 .config/hypr/**
+.config/i3
+.config/i3/**
+.config/kanshi
+.config/kanshi/**
 .config/sway
 .config/sway/**
+.config/rofi
+.config/rofi/**
 .config/waybar
 .config/waybar/**
 {{- end }}

@@ -9,3 +9,5 @@ export PATH="$HOME/.local/bin:$PATH"
 {{- if eq .chezmoi.hostname "IKN8" }}
 export PATH="$PATH:/opt/mssql-tools18/bin"
 {{ end }}
+
+[[ -r "$HOME/.config/zsh/secrets.zsh" ]] && source "$HOME/.config/zsh/secrets.zsh"
