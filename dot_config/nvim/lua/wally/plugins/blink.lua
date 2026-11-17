@@ -1,6 +1,6 @@
 return {
   'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets', 'fang2hou/blink-copilot', 'onsails/lspkind-nvim', 'nvim-tree/nvim-web-devicons' },
+  dependencies = { 'rafamadriz/friendly-snippets', 'onsails/lspkind-nvim', 'nvim-tree/nvim-web-devicons' },
 
   version = '1.*',
   ---@module 'blink.cmp'
@@ -86,15 +86,7 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
-        providers = {
-          copilot = {
-            name = 'copilot',
-            module = 'blink-copilot',
-            score_offset = -500,
-            async = true,
-          },
-        },
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

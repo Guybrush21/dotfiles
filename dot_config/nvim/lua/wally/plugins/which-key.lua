@@ -44,6 +44,7 @@ return {
 
     spec = {
       { '<leader>G', group = 'Git', mode = { 'n' } },
+      { '<leader>o', group = 'OpenCode', mode = { 'n', 'x' } },
       --   { '<leader>r', group = 'Rename' },
       --   { '<leader>s', group = 'Search' },
       --   { '<leader>w', group = 'Workspace' },
