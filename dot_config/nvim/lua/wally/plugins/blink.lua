@@ -32,7 +32,7 @@ return {
           'snippet_backward',
           'fallback',
         },
-        ['<C-y>'] = require('minuet').make_blink_map(),
+        ['<A-y>'] = require('minuet').make_blink_map(),
       },
 
       appearance = {
@@ -87,9 +87,19 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', },
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'minuet' },
+        providers = {
+          minuet = {
+            name = 'minuet',
+            module = 'minuet.blink',
+            async = true,
+            -- Should match minuet.config.request_timeout * 1000,
+            -- since minuet.config.request_timeout is in seconds
+            timeout_ms = 3000,
+            score_offset = 50, -- Gives minuet higher priority among suggestions
+          },
+        },
       },
-
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
       -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
       -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
@@ -97,6 +107,8 @@ return {
       -- See the fuzzy documentation for more information
       fuzzy = { implementation = 'prefer_rust_with_warning' },
       signature = { enabled = true },
+
+      completion = { trigger = { prefetch_on_insert = false } },
     }
 
     vim.lsp.config('*', {

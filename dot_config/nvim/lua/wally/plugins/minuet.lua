@@ -36,7 +36,7 @@ return {
           -- accept one line
           accept_line = '<C-l>',
           dismiss = '<C-h>',
-          next = '<C-[>',
+          next = '<A-n>',
         },
       },
     }
