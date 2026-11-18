@@ -19,7 +19,6 @@ return {
         'csharpier',
         'svelte-language-server',
         'tsc',
-        'llm-ls',
       },
     },
   },

@@ -31,8 +31,12 @@ return {
       virtualtext = {
         auto_trigger_ft = { '*' },
         keymap = {
-          accept = '<M-CR>',
-          dismiss = '<M-BS>',
+          -- accept whole completion
+          accept = '<C-j>',
+          -- accept one line
+          accept_line = '<C-l>',
+          dismiss = '<C-h>',
+          next = '<C-[>',
         },
       },
     }
