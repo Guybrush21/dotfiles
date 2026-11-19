@@ -30,6 +30,7 @@ require('lazy').setup {
   require 'wally.plugins.lspconfig',
   require 'wally.plugins.mason',
   require 'wally.plugins.neotest',
+  require 'wally.plugins.neotree',
   require 'wally.plugins.minuet',
   require 'wally.plugins.opencode',
   require 'wally.plugins.roslyn',
