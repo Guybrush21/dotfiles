@@ -32,4 +32,8 @@ return {
       { '<leader>md', '<cmd>RenderMarkdownToggle<cr>', desc = 'Toggle Markdown Preview' },
     },
   },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
 }

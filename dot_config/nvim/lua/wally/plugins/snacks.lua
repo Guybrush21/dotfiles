@@ -11,26 +11,26 @@ return {
     image = {},
     input = {},
     indent = {},
-    picker = {
-      sources = {
-        explorer = {
-          hidden = true,
-          ignored = false,
-          include = { '.env' },
-          jump = { close = true },
-          win = { list = { keys = { ['\\'] = 'close' } } },
-        },
-      },
-    },
+    -- picker = {
+    --   sources = {
+    --     explorer = {
+    --       hidden = true,
+    --       ignored = false,
+    --       include = { '.env' },
+    --       jump = { close = true },
+    --       win = { list = { keys = { ['\\'] = 'close' } } },
+    --     },
+    --   },
+    -- },
   },
   keys = {
-    {
-      '\\',
-      function()
-        Snacks.explorer()
-      end,
-      desc = 'Explorer',
-    },
+    -- {
+    --   '\\',
+    --   function()
+    --     Snacks.explorer()
+    --   end,
+    --   desc = 'Explorer',
+    -- },
     {
       ']]',
       function()
@@ -46,11 +46,11 @@ return {
       desc = 'Previous reference',
     },
     {
-      '<C-space>',
+      '<A-space>',
       function()
         Snacks.terminal()
       end,
-      mode = { 'n', 'i', 't' },
+      mode = { 'n', 't' },
       desc = 'Toggle terminal',
     },
     {
