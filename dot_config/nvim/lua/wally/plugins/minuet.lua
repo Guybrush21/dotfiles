@@ -5,28 +5,29 @@ return {
     local session_id = 'ses_' .. vim.fn.sha256(vim.fn.getcwd() .. tostring(vim.uv.hrtime())):sub(1, 32)
 
     require('minuet').setup {
-      provider = 'openai_fim_compatible',
+      provider = 'openai_compatible',
       throttle = 1500,
       debounce = 600,
-      n_completions = 3,
+      n_completions = 2,
       provider_options = {
-        openai_fim_compatible = {
-          api_key = 'TERM',
-          name = 'Ollama',
-          end_point = 'http://localhost:11434/v1/completions',
-          model = 'qwen2.5-coder:7b-base',
-          -- optional = {
-          --     max_tokens = 56,
-          --     top_p = 0.9,
-          -- },
-        },
+        -- openai_fim_compatible = {
+        --   api_key = 'TERM',
+        --   name = 'Ollama',
+        --   end_point = 'http://localhost:11434/v1/completions',
+        --   model = 'qwen2.5-coder:7b-base',
+        --   -- optional = {
+        --   --     max_tokens = 56,
+        --   --     top_p = 0.9,
+        --   -- },
+        -- },
         openai_compatible = {
           api_key = 'OPENCODE_GO_API_KEY',
           end_point = 'https://opencode.ai/inference/go/openai/v1/chat/completions',
           model = 'deepseek-v4.1-flash',
           name = 'OpenCode Go',
           optional = {
-            max_tokens = 56,
+            max_tokens = 256,
+            top_p = 0.9,
             thinking = { type = 'disabled' },
           },
           transform = {
