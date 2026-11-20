@@ -8,10 +8,12 @@
   "spacing": 0,
   "reload_style_on_change": true,
 
-  // Workspaces via the Wayland protocol (sway and Hyprland); of the
-  // compositor-specific modules waybar only enables the running one's
+  // Of the compositor-specific modules waybar only enables the running one's.
+  // hyprland/workspaces instead of ext/workspaces: Hyprland sends the ext-workspace
+  // urgent state only on (de)activation, so urgent windows never showed. Trade-off:
+  // waybar's click uses the legacy dispatcher syntax, rejected by the Lua config.
   "modules-left": [
-    "ext/workspaces",
+    "sway/workspaces", "hyprland/workspaces",
     "sway/mode", "hyprland/submap",
     "sway/window", "hyprland/window",
   ],
@@ -59,13 +61,22 @@
     ],
   },
 
-  "ext/workspaces": {
+  "sway/workspaces": {
     "format": "{name} {icon}",
-    "on-click": "activate",
-    "smooth-scrolling-threshold": 3,
-    "on-scroll-down": "[ -n \"$SWAYSOCK\" ] && swaymsg -q workspace next_on_output || hyprctl dispatch 'hl.dsp.focus({ workspace = \"m+1\" })'",
-    "on-scroll-up": "[ -n \"$SWAYSOCK\" ] && swaymsg -q workspace prev_on_output || hyprctl dispatch 'hl.dsp.focus({ workspace = \"m-1\" })'",
     "format-icons": {
+      "focused": "<span color='#e0af68'></span>",
+      "urgent": "<span color='#f7768e'></span>",
+      "default": "<span color='#e0af68'></span>",
+    },
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name} {icon}",
+    "smooth-scrolling-threshold": 3,
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"m+1\" })'",
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"m-1\" })'",
+    "format-icons": {
+      "urgent": "<span color='#f7768e'></span>",
       "active": "<span color='#e0af68'></span>",
       "default": "<span color='#e0af68'></span>",
     },

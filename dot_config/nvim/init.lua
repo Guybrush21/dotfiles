@@ -14,6 +14,7 @@ else
   })
 
   require 'wally.plugins.lazy'
+  require('lualine').setup()
 
   vim.cmd 'colorscheme tokyonight'
 

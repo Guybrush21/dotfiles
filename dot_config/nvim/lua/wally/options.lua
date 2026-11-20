@@ -32,7 +32,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
-vim.opt.scrolloff = 20
+vim.opt.scrolloff = 12
 vim.opt.wrap = true
 
 vim.opt.swapfile = false
@@ -71,6 +71,7 @@ vim.diagnostic.config {
       [vim.diagnostic.severity.HINT] = '󰌶 ',
     },
   } or {},
+  virtual_lines = { current_line = true },
   virtual_text = {
     source = 'if_many',
     spacing = 2,
